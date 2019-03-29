@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_wiew"
+        card_view:cardElevation="@dimen/card_elevation"
+        android:layout_gravity="center"
+        android:background="@drawable/drw_ripple"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="@dimen/card_corner_radius"
+        card_view:cardUseCompatPadding="true"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:id="@+id/direccion_img"
+                android:contentDescription="@string/img_content_description"
+                android:layout_height="@dimen/card_banner_img" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:weightSum="1"
+                android:baselineAligned="false"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="0.2"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/ly_circular_size"
+                        android:background="@drawable/drw_acronym"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:layout_height="@dimen/ly_circular_size">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:id="@+id/txt_acronym"
+                            android:textAlignment="center"
+                            android:text=""
+                            android:textStyle="bold"
+                            android:textColor="@color/TextIcons"
+                            android:layout_centerInParent="true"
+                            android:layout_height="wrap_content" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:id="@+id/txt_direccion"
+                        android:textColor="@color/PrimaryText"
+                        android:textStyle="bold"
+                        android:text=""
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:id="@+id/txt_director"
+                        android:textColor="@color/SecondayText"
+                        android:textStyle="bold"
+                        android:text=""
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_marginTop="@dimen/text_separator"
+                        android:id="@+id/txt_descripcion"
+                        android:layout_width="match_parent"
+                        android:textColor="@color/SecondayText"
+                        android:text=""
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>

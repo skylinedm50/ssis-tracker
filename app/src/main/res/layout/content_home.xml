@@ -8,4 +8,12 @@
     tools:context=".view.home.HomeActivity"
     tools:showIn="@layout/app_bar_home">
 
+    <android.support.v7.widget.RecyclerView
+
+        android:layout_width="match_parent"
+        android:id="@+id/rv_direcciones"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
 </android.support.constraint.ConstraintLayout>
