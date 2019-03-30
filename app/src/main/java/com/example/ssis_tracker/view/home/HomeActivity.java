@@ -12,8 +12,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import com.example.ssis_tracker.adapter.*;
 import com.example.ssis_tracker.R;
+import com.example.ssis_tracker.adapter.direcciones.adapter_direciones;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,7 +33,7 @@ public class HomeActivity extends AppCompatActivity
 
         RecyclerView rvDirecciones = findViewById(R.id.rv_direcciones);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getApplicationContext());
-        adapter_direciones  adapter_direcciones = new adapter_direciones(this.getApplicationContext());
+        adapter_direciones adapter_direcciones = new adapter_direciones(this.getApplicationContext());
 
         rvDirecciones.setAdapter(adapter_direcciones);
         rvDirecciones.setLayoutManager(linearLayoutManager);
@@ -42,6 +42,7 @@ public class HomeActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        getSupportActionBar().setTitle(R.string.direcciones);
     }
 
     @Override

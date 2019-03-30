@@ -1,10 +1,12 @@
-package com.example.ssis_tracker.adapter;
+package com.example.ssis_tracker.adapter.direcciones;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +14,11 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.ssis_tracker.R;
+import com.example.ssis_tracker.view.proyectos.proyectos_activity;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -81,9 +85,6 @@ public class adapter_direciones extends RecyclerView.Adapter<adapter_direciones.
         arrayDirecciones.add(new String[]{  "3" , "UCP" ,
                 "UNIDAD CORDINADORA DE PROYECTOS" ,"WIL CASTRO" ,
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."});
-
-
-
     }
 
     @NonNull
@@ -121,20 +122,29 @@ public class adapter_direciones extends RecyclerView.Adapter<adapter_direciones.
                 break;
         }
 
-        holderDirecciones.TxtAcronym.setText(arrayDirecciones.get(i)[1])   ;
-        holderDirecciones.TxtDireccion.setText(arrayDirecciones.get(i)[2]) ;
-        holderDirecciones.TxtDirector.setText(arrayDirecciones.get(i)[3])  ;
+        holderDirecciones.TxtAcronym.setText(arrayDirecciones.get(i)[1])     ;
+        holderDirecciones.TxtDireccion.setText(arrayDirecciones.get(i)[2])  ;
+        holderDirecciones.TxtDirector.setText(arrayDirecciones.get(i)[3])    ;
         holderDirecciones.TxtDescripcion.setText(arrayDirecciones.get(i)[4]) ;
 
-        /*seccion color y animacion */
+        /*seccion de color y animacion */
         Animation animation = AnimationUtils.loadAnimation(context, (i > lastPosition) ? R.anim.top_from_down : R.anim.down_from_top);
         holderDirecciones.itemView.startAnimation(animation);
         lastPosition = i;
 
         Random rnd = new Random();
         int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-        Drawable mDrawable = context.getResources().getDrawable(R.drawable.drw_acronym);
-        mDrawable.setColorFilter(color , PorterDuff.Mode.MULTIPLY);
+        Drawable drawable = holderDirecciones.rlIconAcronym.getBackground();
+        GradientDrawable gradientDrawable = (GradientDrawable) drawable;
+        gradientDrawable.setColor(color);
+        /* Eventos */
+        holderDirecciones.cardDirecciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext() , proyectos_activity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -144,11 +154,13 @@ public class adapter_direciones extends RecyclerView.Adapter<adapter_direciones.
 
     public class HolderDirecciones extends RecyclerView.ViewHolder {
 
-        ImageView ImgDireccion;
-        TextView  TxtAcronym;
-        TextView  TxtDireccion;
-        TextView  TxtDirector;
-        TextView  TxtDescripcion;
+        ImageView       ImgDireccion;
+        TextView        TxtAcronym;
+        TextView        TxtDireccion;
+        TextView        TxtDirector;
+        TextView        TxtDescripcion;
+        RelativeLayout  rlIconAcronym;
+        CardView        cardDirecciones;
 
         public HolderDirecciones(@NonNull View itemView) {
             super(itemView);
@@ -157,6 +169,8 @@ public class adapter_direciones extends RecyclerView.Adapter<adapter_direciones.
             TxtDireccion    = itemView.findViewById(R.id.txt_direccion);
             TxtDirector     = itemView.findViewById(R.id.txt_director);
             TxtDescripcion  = itemView.findViewById(R.id.txt_descripcion);
+            rlIconAcronym   = itemView.findViewById(R.id.rlAcronym);
+            cardDirecciones = itemView.findViewById(R.id.card_view_direcciones);
         }
     }
 }

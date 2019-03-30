@@ -10,4 +10,7 @@
     <dimen name="card_banner_img">100dp</dimen>
     <dimen name="ly_circular_size">50dp</dimen>
     <dimen name="text_separator">5dp</dimen>
+    <dimen name="card_text_padding">16dp</dimen>
+    <dimen name="divides_margin">10dp</dimen>
+    <dimen name="text_size_estados">11sp</dimen>
 </resources>

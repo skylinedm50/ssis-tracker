@@ -9,4 +9,7 @@
     <string name="action_settings">Settings</string>
     <string name="direcciones">Direcciones</string>
     <string name="img_content_description">Direcciones</string>
+    <string name="Procesosrealizado">% Realizado</string>
+    <string name="Diastranscurridos">% Dias Transcurridos</string>
+    <string name="punpunear">Pumpunear la mesa</string>
 </resources>
