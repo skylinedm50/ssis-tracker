@@ -1,5 +1,6 @@
 package com.example.ssis_tracker.view.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -14,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import com.example.ssis_tracker.R;
 import com.example.ssis_tracker.adapter.direcciones.adapter_direciones;
+import com.example.ssis_tracker.view.procesos.ProcesoActivity;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,6 +45,9 @@ public class HomeActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         getSupportActionBar().setTitle(R.string.direcciones);
+
+        Intent intent = new Intent(getApplicationContext(), ProcesoActivity.class);
+        startActivity(intent);
     }
 
     @Override
