@@ -46,8 +46,7 @@ public class HomeActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         getSupportActionBar().setTitle(R.string.direcciones);
 
-        Intent intent = new Intent(getApplicationContext(), ProcesoActivity.class);
-        startActivity(intent);
+
     }
 
     @Override
