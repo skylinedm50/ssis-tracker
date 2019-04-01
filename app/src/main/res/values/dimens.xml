@@ -14,4 +14,5 @@
     <dimen name="divides_margin">10dp</dimen>
     <dimen name="text_size_estados">11sp</dimen>
     <dimen name="ly_circular_smallsize">15dp</dimen>
+    <dimen name="icon_cardsize">70dp</dimen>
 </resources>
