@@ -12,4 +12,5 @@
     <string name="Procesosrealizado">% Realizado</string>
     <string name="Diastranscurridos">% Dias Transcurridos</string>
     <string name="punpunear">Pumpunear la mesa</string>
+    <string name="textWithoutData">NO SE DETECTARON DATOS</string>
 </resources>

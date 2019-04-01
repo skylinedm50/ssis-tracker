@@ -6,7 +6,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/card_view_direcciones"
+        android:id="@+id/cardViewDirecciones"
         card_view:cardElevation="@dimen/card_elevation"
         android:layout_gravity="center"
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:id="@+id/direccion_img"
+                android:id="@+id/imageViewDireccion"
                 android:contentDescription="@string/img_content_description"
                 android:layout_height="@dimen/card_banner_img" />
 
@@ -44,7 +44,7 @@
 
                     <RelativeLayout
                         android:layout_width="@dimen/ly_circular_size"
-                        android:id="@+id/rlAcronym"
+                        android:id="@+id/relativeLayoutSiglas"
                         android:background="@drawable/drw_acronym"
                         android:layout_alignParentTop="true"
                         android:layout_centerInParent="true"
@@ -52,7 +52,7 @@
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:id="@+id/txt_acronym"
+                            android:id="@+id/textViewSiglas"
                             android:textAlignment="center"
                             android:text=""
                             android:textStyle="bold"
@@ -72,31 +72,28 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:id="@+id/txt_direccion"
+                        android:id="@+id/textViewNombreDireccion"
                         android:textColor="@color/PrimaryText"
                         android:textStyle="bold"
                         android:text=""
                         android:layout_height="wrap_content" />
                     <TextView
                         android:layout_width="match_parent"
-                        android:id="@+id/txt_director"
+                        android:id="@+id/textViewDirector"
                         android:textColor="@color/SecondayText"
                         android:textStyle="bold"
                         android:text=""
                         android:layout_height="wrap_content" />
                     <TextView
                         android:layout_marginTop="@dimen/text_separator"
-                        android:id="@+id/txt_descripcion"
+                        android:id="@+id/textViewDescripcion"
                         android:layout_width="match_parent"
                         android:textColor="@color/SecondayText"
                         android:text=""
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>
-
             </LinearLayout>
-
-
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
