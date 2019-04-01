@@ -47,7 +47,6 @@ public class AdapterProyectos extends RecyclerView.Adapter<AdapterProyectos.Hold
     private ArrayList<Proyecto> arrayList;
     private final Context context;
     private int lastPosition = -1;
-    private int minHeight;
     private ApiAdapterProyectos adapterProyectos;
     private ApiServiceProyectos serviceProyectos;
     private AlertDialog alertDialog;
@@ -75,18 +74,17 @@ public class AdapterProyectos extends RecyclerView.Adapter<AdapterProyectos.Hold
 
     @Override
     public void onBindViewHolder(@NonNull final HolderProyectos holderProyectos, final int i) {
-        holderProyectos.textViewNombreProyecto.setText(arrayList.get(i).getNombre());
+        holderProyectos.textViewNombreProyecto.setText(arrayList.get(i).getNombre().toUpperCase());
         holderProyectos.textViewFechasProyecto.setText(arrayList.get(i).getFechas());
         holderProyectos.textViewDescripcionProyecto.setText(arrayList.get(i).getDescripcion());
         holderProyectos.textViewEstado.setText(arrayList.get(i).getEstado());
-        expandAndAddInfoCardView(holderProyectos.cardViewProyecto);
 
         Drawable drawable = holderProyectos.viewEstadoColor.getBackground();
         GradientDrawable gradientDrawable = (GradientDrawable) drawable;
         gradientDrawable.setColor(Color.parseColor( arrayList.get(i).getColor()));
 
         generarChart(arrayList.get(i).getPorcentajeProcesos(), holderProyectos.pieChartRealizado, 8f);
-        generarChart(arrayList.get(i).getPorcentajeDias(), holderProyectos.pieChartDiasTranscurridos,8f);
+        generarChart(arrayList.get(i).getPorcentajeDias() > 100 ? 100: arrayList.get(i).getPorcentajeDias(), holderProyectos.pieChartDiasTranscurridos,8f);
 
        /**Sección de color y animación*/
         Animation animation = AnimationUtils.loadAnimation(context, (i > lastPosition) ? R.anim.top_from_down : R.anim.down_from_top);
@@ -94,12 +92,6 @@ public class AdapterProyectos extends RecyclerView.Adapter<AdapterProyectos.Hold
         lastPosition = i;
 
         /**Evento*/
-        holderProyectos.imageViewExpandCollapse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toggleCardViewnHeight(holderProyectos.linearLayoutEstadoMetas, holderProyectos.cardViewProyecto, holderProyectos.pieChartMetas, arrayList.get(i).getPorcentajeMetas());
-            }
-        });
 
         holderProyectos.linearLayoutPumpunear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,11 +125,8 @@ public class AdapterProyectos extends RecyclerView.Adapter<AdapterProyectos.Hold
         TextView textViewActualizacionMetas;
         PieChart pieChartRealizado;
         PieChart pieChartDiasTranscurridos;
-        PieChart pieChartMetas;
-        ImageView imageViewExpandCollapse;
         CardView cardViewProyecto;
         LinearLayout linearLayoutPumpunear;
-        LinearLayout linearLayoutEstadoMetas;
         ImageView imageViewMetas;
 
         public HolderProyectos(@NonNull View itemView) {
@@ -150,10 +139,7 @@ public class AdapterProyectos extends RecyclerView.Adapter<AdapterProyectos.Hold
             textViewEstado = itemView.findViewById(R.id.textViewEstado);
             pieChartRealizado = itemView.findViewById(R.id.pieChartRealizado);
             pieChartDiasTranscurridos = itemView.findViewById(R.id.pieChartDiasTranscurridos);
-            pieChartMetas = itemView.findViewById(R.id.pieChartMetas);
-            imageViewExpandCollapse = itemView.findViewById(R.id.imageViewExpandCollapse);
             linearLayoutPumpunear = itemView.findViewById(R.id.linearLayoutPumpunear);
-            linearLayoutEstadoMetas = itemView.findViewById(R.id.linearLayoutEstadoMetas);
             textViewActualizacionMetas = itemView.findViewById(R.id.textViewActualizacionMetas);
             imageViewMetas = itemView.findViewById(R.id.imageViewMetas);
         }
@@ -189,60 +175,6 @@ public class AdapterProyectos extends RecyclerView.Adapter<AdapterProyectos.Hold
         pieChart.setData(circleData);
     }
 
-    private void expandAndAddInfoCardView(final CardView cardView){
-        WindowManager windowManager = (WindowManager)context.getSystemService(context.WINDOW_SERVICE);
-        DisplayMetrics dimension = new DisplayMetrics();
-        windowManager.getDefaultDisplay().getMetrics(dimension);
-
-        cardView.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-            @Override
-            public boolean onPreDraw() {
-                minHeight = cardView.getHeight();
-                ViewGroup.LayoutParams layoutParams = cardView.getLayoutParams();
-                layoutParams.height = 1417;
-                return true;
-            }
-        });
-    }
-
-    private void toggleCardViewnHeight(LinearLayout linearLayoutEstadoMetas, CardView cardView , PieChart pieChart , int porcentaje) {
-        if (cardView.getHeight() < 1900) {
-            linearLayoutEstadoMetas.setVisibility(View.VISIBLE);
-            expandView(1900, cardView, pieChart, porcentaje);
-        } else {
-            linearLayoutEstadoMetas.setVisibility(View.GONE);
-            collapseView(cardView);
-        }
-    }
-
-    private void collapseView(final CardView cardView) {
-        ValueAnimator anim = ValueAnimator.ofInt(cardView.getMeasuredHeightAndState(), minHeight);
-        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                ViewGroup.LayoutParams layoutParams = cardView.getLayoutParams();
-                layoutParams.height = 1417;
-                cardView.setLayoutParams(layoutParams);
-            }
-        });
-        anim.start();
-    }
-
-    private void expandView(int height, final CardView cardView , PieChart pieChart , int porcentaje) {
-        generarChart(porcentaje , pieChart,30f);
-        ValueAnimator anim = ValueAnimator.ofInt(cardView.getMeasuredHeightAndState(), height);
-        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                int val = (Integer) valueAnimator.getAnimatedValue();
-                ViewGroup.LayoutParams layoutParams = cardView.getLayoutParams();
-                layoutParams.height = val;
-                cardView.setLayoutParams(layoutParams);
-            }
-        });
-        anim.start();
-
-    }
 
     public void adapterDataChange(ArrayList<Proyecto> arrayList){
         this.arrayList = arrayList;
