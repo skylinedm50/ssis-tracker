@@ -3,6 +3,7 @@ package com.example.ssis_tracker.adapter.proyectos;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
@@ -31,6 +32,7 @@ import com.example.ssis_tracker.api.proyectos.ApiAdapterProyectos;
 import com.example.ssis_tracker.api.proyectos.ApiServiceProyectos;
 import com.example.ssis_tracker.model.Meta;
 import com.example.ssis_tracker.model.Proyecto;
+import com.example.ssis_tracker.view.procesos.ProcesoActivity;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -107,6 +109,14 @@ public class AdapterProyectos extends RecyclerView.Adapter<AdapterProyectos.Hold
             @Override
             public void onClick(View v) {
                 showPoppupMetas(arrayList.get(i).getId(), v);
+            }
+        });
+
+        holderProyectos.cardViewProyecto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ProcesoActivity.class);
+                v.getContext().startActivity(intent);
             }
         });
     }
