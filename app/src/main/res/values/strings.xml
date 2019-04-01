@@ -12,6 +12,7 @@
     <string name="Procesosrealizado">% Realizado</string>
     <string name="Diastranscurridos">% Dias Transcurridos</string>
     <string name="punpunear">Pumpunear la mesa</string>
+    <string name="textWithoutData">NO SE DETECTARON DATOS</string>
     <string name="Metas">Metas</string>
     <string name="agendar">Agendar Staff</string>
     <string name="estadometas">Estado de Metas</string>

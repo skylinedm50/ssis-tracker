@@ -2,21 +2,26 @@ package com.example.ssis_tracker.view.home;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.example.ssis_tracker.R;
-import com.example.ssis_tracker.adapter.direcciones.adapter_direciones;
+import com.example.ssis_tracker.view.direcciones.DireccionesFragment;
+
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, HomeActivityView {
+    int itemIdSelect;
+    DrawerLayout drawerLayout;
+    ConstraintLayout constraintLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,34 +29,23 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        constraintLayout = findViewById(R.id.constraintLayout);
+        drawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
-        RecyclerView rvDirecciones = findViewById(R.id.rv_direcciones);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getApplicationContext());
-        adapter_direciones adapter_direcciones = new adapter_direciones(this.getApplicationContext());
-
-        rvDirecciones.setAdapter(adapter_direcciones);
-        rvDirecciones.setLayoutManager(linearLayoutManager);
-
-        rvDirecciones.scheduleLayoutAnimation();
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        getSupportActionBar().setTitle(R.string.direcciones);
-
-
+        getSupportActionBar().setTitle("");
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        drawerLayout.cancelLongPress();
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
@@ -83,24 +77,35 @@ public class HomeActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        int itemId = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if(itemId != itemIdSelect) {
+            if (itemId == R.id.nav_direcciones) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.constraintLayout, new DireccionesFragment()).addToBackStack(null).commit();
+            } else if (itemId == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+            } else if (itemId == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
+            } else if (itemId == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+            } else if (itemId == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+            } else if (itemId == R.id.nav_send) {
 
+            }
+            cleanFragmmentViewGroup();
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        itemIdSelect = itemId;
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void cleanFragmmentViewGroup() {
+        List<android.support.v4.app.Fragment> fragmentsList = getSupportFragmentManager().getFragments();
+        for(android.support.v4.app.Fragment fragment: fragmentsList){
+            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+        }
     }
 }
