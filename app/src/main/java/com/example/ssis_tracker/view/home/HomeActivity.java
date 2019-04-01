@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -86,7 +85,7 @@ public class HomeActivity extends AppCompatActivity
                 getSupportFragmentManager().beginTransaction().replace(R.id.constraintLayout, new DireccionesFragment()).addToBackStack(null).commit();
             } else if (itemId == R.id.nav_gallery) {
 
-            } else if (itemId == R.id.nav_slideshow) {
+            }/* else if (itemId == R.id.nav_slideshow) {
 
             } else if (itemId == R.id.nav_manage) {
 
@@ -94,7 +93,7 @@ public class HomeActivity extends AppCompatActivity
 
             } else if (itemId == R.id.nav_send) {
 
-            }
+            }*/
             cleanFragmmentViewGroup();
         }
 
