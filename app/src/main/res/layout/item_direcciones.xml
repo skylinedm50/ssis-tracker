@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:id="@+id/imageViewDireccion"
                 android:contentDescription="@string/img_content_description"
-                android:layout_height="@dimen/card_banner_img" />
+                android:layout_height="50dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-
 import com.example.ssis_tracker.R;
 import com.example.ssis_tracker.adapter.actividades.adapter_actividades;
 

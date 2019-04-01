@@ -54,10 +54,10 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
 
         switch (random.nextInt(2)){
             case 0:
-                idDrawable = R.drawable.ssis1;
+                idDrawable = R.drawable.ssis4;
                 break;
             case 1:
-                idDrawable = R.drawable.ssis2;
+                idDrawable = R.drawable.ssis1;
                 break;
             case 3:
                 idDrawable = R.drawable.ssis3;

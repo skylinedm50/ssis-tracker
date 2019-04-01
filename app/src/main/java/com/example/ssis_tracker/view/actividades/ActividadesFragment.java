@@ -5,23 +5,26 @@ import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
-import android.util.DisplayMetrics;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.example.ssis_tracker.R;
+import com.example.ssis_tracker.adapter.actividades.AdapterComentarios;
 
 
 public class ActividadesFragment extends Fragment {
 
     private int minHeight;
     private CardView CardActividad;
+    private LinearLayout  LinearLayoutComentarios;
 
     public static ActividadesFragment NuevaInstancia(int position, int size){
 
@@ -36,11 +39,31 @@ public class ActividadesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View fragmentActividad    = inflater.inflate(R.layout.fragment_actividades , container , false);
         TextView txt_position     = fragmentActividad.findViewById(R.id.txt_posicion);
+        TextView TxtDireccion  = fragmentActividad.findViewById(R.id.txt_direccion);
+
         RelativeLayout  rl_Expand = fragmentActividad.findViewById(R.id.rl_Expand_Comentarios);
+        RelativeLayout  RelativeLayoutBottomSheet = fragmentActividad.findViewById(R.id.RelativeLayoutBottomSheet);
+
+        LinearLayoutComentarios = fragmentActividad.findViewById(R.id.LinearLayoutComentarios);
         CardActividad = fragmentActividad.findViewById(R.id.card_view_actividad);
-        iniciar_card();
+
+        RecyclerView rvComentarios = fragmentActividad.findViewById(R.id.rvComentarios);
+        AdapterComentarios adapterComentarios = new AdapterComentarios();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext());
+
+
+       /* final BottomSheetBehavior bsb = BottomSheetBehavior.from(RelativeLayoutBottomSheet);
+        RelativeLayoutBottomSheet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
+            }
+        });*/
+        rvComentarios.setLayoutManager(linearLayoutManager);
+        rvComentarios.setAdapter(adapterComentarios);
 
         txt_position.setText(
                 String.valueOf( getArguments().getInt("position") + 1 )+"/"+String.valueOf(getArguments().getInt("size"))
@@ -49,7 +72,19 @@ public class ActividadesFragment extends Fragment {
         rl_Expand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                toggleCardViewnHeight();
+                ValueAnimator anim = ValueAnimator.ofInt(CardActividad.getMeasuredHeightAndState(), 8000);
+                anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                        if(LinearLayoutComentarios.getVisibility() == View.GONE){
+                            LinearLayoutComentarios.setVisibility(View.VISIBLE);
+                        }else{
+                            LinearLayoutComentarios.setVisibility(View.GONE);
+                        }
+                    }
+                });
+                anim.start();
+
             }
         });
 
@@ -57,58 +92,5 @@ public class ActividadesFragment extends Fragment {
     }
 
 
-    private void iniciar_card(){
-        WindowManager windowManager = (WindowManager) this.getContext().getSystemService(this.getContext().WINDOW_SERVICE);
-        DisplayMetrics dimension = new DisplayMetrics();
-        windowManager.getDefaultDisplay().getMetrics(dimension);
-
-        CardActividad.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-            @Override
-            public boolean onPreDraw() {
-                minHeight = CardActividad.getHeight();
-                ViewGroup.LayoutParams layoutParams = CardActividad.getLayoutParams();
-                layoutParams.height = 3000;
-                return true;
-            }
-        });
-    }
-
-    private void toggleCardViewnHeight( ) {
-        if (CardActividad.getHeight() < 4000) {
-            expandView(4000);
-        } else {
-            collapseView();
-        }
-    }
-
-    public void collapseView() {
-
-        ValueAnimator anim = ValueAnimator.ofInt(CardActividad.getMeasuredHeightAndState(), minHeight);
-        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                ViewGroup.LayoutParams layoutParams = CardActividad.getLayoutParams();
-                layoutParams.height = 3000;
-                CardActividad.setLayoutParams(layoutParams);
-            }
-        });
-        anim.start();
-    }
-
-    public void expandView(int height) {
-
-        ValueAnimator anim = ValueAnimator.ofInt(CardActividad.getMeasuredHeightAndState(), height);
-        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                int val = (Integer) valueAnimator.getAnimatedValue();
-                ViewGroup.LayoutParams layoutParams = CardActividad.getLayoutParams();
-                layoutParams.height = val;
-                CardActividad.setLayoutParams(layoutParams);
-            }
-        });
-        anim.start();
-
-    }
 
 }
