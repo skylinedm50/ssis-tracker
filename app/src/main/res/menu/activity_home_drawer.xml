@@ -9,6 +9,22 @@
             android:icon="@drawable/ic_layers_black"
             android:title="Direcciones" />
         <item
+            android:enabled="false"
+            android:id="@+id/nav_proyectos"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Proyectos" />
+        <item
+            android:enabled="false"
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_calendar"
+            android:title="Agenda Staff" />
+        <item
+            android:enabled="false"
+            android:id="@+id/nav_find"
+            android:icon="@drawable/ic_search_black"
+            android:title="Buscar" />
+
+        <!--<item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Gallery" />
@@ -19,10 +35,10 @@
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="Tools" />-->
     </group>
 
-    <item android:title="Communicate">
+    <!--<item android:title="Communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
@@ -33,6 +49,6 @@
                 android:icon="@drawable/ic_menu_send"
                 android:title="Send" />
         </menu>
-    </item>
+    </item>-->
 
 </menu>
