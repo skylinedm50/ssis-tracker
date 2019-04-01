@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.ssis_tracker.R;
 import com.example.ssis_tracker.model.Meta;
 import com.github.mikephil.charting.charts.PieChart;
