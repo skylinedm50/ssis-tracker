@@ -18,7 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.ssis_tracker.R;
-import com.example.ssis_tracker.view.proyectos.proyectos_activity;
+import com.example.ssis_tracker.view.proyectos.ProyectosActivity;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -141,7 +141,7 @@ public class adapter_direciones extends RecyclerView.Adapter<adapter_direciones.
         holderDirecciones.cardDirecciones.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext() , proyectos_activity.class);
+                Intent intent = new Intent(v.getContext() , ProyectosActivity.class);
                 v.getContext().startActivity(intent);
             }
         });

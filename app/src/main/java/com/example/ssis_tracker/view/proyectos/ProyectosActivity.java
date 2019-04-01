@@ -8,7 +8,7 @@ import com.example.ssis_tracker.R;
 import com.example.ssis_tracker.adapter.proyectos.adapter_proyectos;
 
 
-public class proyectos_activity extends AppCompatActivity {
+public class ProyectosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@android.support.annotation.Nullable Bundle savedInstanceState) {

@@ -26,8 +26,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.proyectos.proyectos_activity"
+            android:name=".view.proyectos.ProyectosActivity"
             android:label="Proyectos"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.actividades.ActividadesActivity"
+            android:label="Actividades"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme" />
     </application>

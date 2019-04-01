@@ -10,7 +10,7 @@
         card_view:cardElevation="@dimen/card_elevation"
         android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         card_view:cardCornerRadius="@dimen/card_corner_radius"
         card_view:cardUseCompatPadding="true"
         android:animateLayoutChanges="true"
@@ -30,7 +30,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:id="@+id/nombre_proyecto"
-                    android:text="ENTREGA DE MOCHILAS EN LEPAERA"
                     android:textColor="@color/PrimaryText"
                     android:textStyle="bold"
                     android:layout_marginBottom="@dimen/text_separator"
@@ -39,7 +38,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:id="@+id/fechas_proyecto"
-                    android:text="28/03/2019 - 01/04/2019"
                     android:textColor="@color/SecondayText"
                     android:layout_marginBottom="@dimen/text_separator"
                     android:textStyle="bold"
@@ -48,7 +46,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:id="@+id/descripcion_proyecto"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
                     android:textColor="@color/SecondayText"
                     android:layout_marginBottom="@dimen/text_separator"
                     android:textStyle="bold"
@@ -67,7 +64,8 @@
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:weightSum="1"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -82,16 +80,18 @@
                         android:layout_width="40dp"
                         android:layout_gravity="center"
                         android:layout_height="50dp"
-                        android:src="@drawable/ic_equalizer"></ImageView>
+                        android:src="@drawable/ic_equalizer"
+                        android:contentDescription="@string/imgContentDescripcion"></ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="Metas"
+                        android:text="@string/Metas"
                         android:layout_gravity="center"
                         android:textStyle="bold"
                         android:textSize="@dimen/text_size_estados"
                         android:textColor="@color/PrimaryText"
                         android:layout_height="wrap_content" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -115,6 +115,7 @@
                         android:textSize="@dimen/text_size_estados"
                         android:textColor="@color/PrimaryText"
                         android:layout_height="wrap_content" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -138,6 +139,7 @@
                         android:textSize="@dimen/text_size_estados"
                         android:textColor="@color/PrimaryText"
                         android:layout_height="wrap_content" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -154,7 +156,8 @@
                 android:orientation="horizontal"
                 android:gravity="bottom"
                 android:weightSum="1"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -195,7 +198,8 @@
                         android:layout_width="30dp"
                         android:layout_gravity="center"
                         android:layout_height="30dp"
-                        android:src="@drawable/ic_gavel"></ImageView>
+                        android:src="@drawable/ic_gavel"
+                        android:contentDescription="@string/imgContentDescripcion"></ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -222,16 +226,18 @@
                         android:layout_width="30dp"
                         android:layout_gravity="center"
                         android:layout_height="30dp"
-                        android:src="@drawable/ic_calendar"></ImageView>
+                        android:src="@drawable/ic_calendar"
+                        android:contentDescription="@string/imgContentDescripcion"></ImageView>
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:text="Agendar Staff"
+                        android:text="@string/agendar"
                         android:layout_gravity="center"
                         android:textStyle="bold"
                         android:textSize="@dimen/text_size_estados"
                         android:textColor="@color/PrimaryText"
                         android:layout_height="wrap_content" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -245,12 +251,12 @@
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:id="@+id/txt_actualizacion_meta"
                     android:layout_weight="0.92"
                     android:layout_gravity="center"
                     android:textColor="@color/TextResaltar"
                     android:textStyle="bold"
                     android:textSize="@dimen/text_size_estados"
-                    android:text="Meta actualizada: 30/03/2019"
                     android:layout_height="wrap_content" />
 
 
@@ -264,13 +270,16 @@
                     android:focusable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:padding="8dp"
-                    android:src="@drawable/ic_key_down" />
+                    android:src="@drawable/ic_key_down"
+                    android:contentDescription="@string/imgContentDescripcion" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
+                android:id="@+id/LyEstadoMetas"
+                android:visibility="gone"
                 android:orientation="vertical"
                 android:weightSum="1">
 
@@ -280,7 +289,7 @@
                     android:textColor="@color/PrimaryText"
                     android:textStyle="bold"
                     android:textSize="13sp"
-                    android:text="Estado de Metas"
+                    android:text="@string/estadometas"
                     android:layout_weight="0.2"/>
 
                 <LinearLayout
