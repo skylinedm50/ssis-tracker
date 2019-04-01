@@ -1,7 +1,9 @@
 package com.example.ssis_tracker.adapter.procesos;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,13 +11,14 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-
 import com.example.ssis_tracker.R;
 import com.example.ssis_tracker.model.Proceso;
+import com.example.ssis_tracker.view.actividades.ActividadesActivity;
 
 import java.util.ArrayList;
 
 public class adapter_procesos extends RecyclerView.Adapter<adapter_procesos.HolderProcess>{
+
     private ArrayList<Proceso> arrayListProcess;
     private adapter_procesos.OnItemClickListener onClickListener;
     private Context context;
@@ -26,6 +29,7 @@ public class adapter_procesos extends RecyclerView.Adapter<adapter_procesos.Hold
         private TextView tvTituloProcess;
         private TextView tvDescProcess;
         private TextView tvNumProcess;
+        private CardView CardView;
 
         public HolderProcess(View itemView, adapter_procesos.OnItemClickListener listener){
             super(itemView);
@@ -33,15 +37,12 @@ public class adapter_procesos extends RecyclerView.Adapter<adapter_procesos.Hold
             this.tvTituloProcess = itemView.findViewById(R.id.tvTituloProceso);
             this.tvDescProcess = itemView.findViewById(R.id.tvDescProceso);
             this.tvNumProcess  = itemView.findViewById(R.id.tvNumProceso);
+            this.CardView      = itemView.findViewById(R.id.cardView4);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(onClickListener != null){
-                        if(getAdapterPosition() != RecyclerView.NO_POSITION){
-                            onClickListener.onitemClick(getAdapterPosition());
-                        }
-                    }
+
                 }
             });
         }
@@ -85,6 +86,15 @@ public class adapter_procesos extends RecyclerView.Adapter<adapter_procesos.Hold
         Animation animation = AnimationUtils.loadAnimation(context, (i > lastPosition) ? R.anim.top_from_down : R.anim.down_from_top);
         viewHolder.itemView.startAnimation(animation);
         lastPosition = i;
+
+
+        viewHolder.CardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext() , ActividadesActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

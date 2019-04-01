@@ -13,4 +13,9 @@
     <string name="Diastranscurridos">% Dias Transcurridos</string>
     <string name="punpunear">Pumpunear la mesa</string>
     <string name="textWithoutData">NO SE DETECTARON DATOS</string>
+    <string name="AvanceMetas">% Metas</string>
+    <string name="Metas">Metas</string>
+    <string name="agendar">Agendar Staff</string>
+    <string name="estadometas">Estado de Metas</string>
+    <string name="imgContentDescripcion">Content Description</string>
 </resources>

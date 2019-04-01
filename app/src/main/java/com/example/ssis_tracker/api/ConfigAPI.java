@@ -25,7 +25,7 @@ public class ConfigAPI {
         String Home = "/index.php/";
         String doublePoint = ":";
 
-        URL = Protocolo + IPExterna + doublePoint + Port + Home;
+        URL = Protocolo + IPinterna + doublePoint + Port + Home;
         return URL;
     }
 }

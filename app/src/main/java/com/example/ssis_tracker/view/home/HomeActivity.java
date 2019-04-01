@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import com.example.ssis_tracker.R;
 import com.example.ssis_tracker.view.direcciones.DireccionesFragment;
+import com.example.ssis_tracker.view.performance.PerformanceFragment;
 
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class HomeActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         getSupportActionBar().setTitle("");
+        getSupportFragmentManager().beginTransaction().replace(R.id.constraintLayout, new PerformanceFragment()).addToBackStack(null).commit();
     }
 
     @Override
