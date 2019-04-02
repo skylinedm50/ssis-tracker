@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.example.ssis_tracker.R;
+import com.example.ssis_tracker.view.agenda.AgendaFragment;
 import com.example.ssis_tracker.view.direcciones.DireccionesFragment;
 import com.example.ssis_tracker.view.performance.PerformanceFragment;
 
@@ -83,8 +84,8 @@ public class HomeActivity extends AppCompatActivity
         if(itemId != itemIdSelect) {
             if (itemId == R.id.nav_direcciones) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.constraintLayout, new DireccionesFragment()).addToBackStack(null).commit();
-            } else if (itemId == R.id.nav_gallery) {
-
+            } else if (itemId == R.id.nav_agenda) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.constraintLayout, new AgendaFragment()).addToBackStack(null).commit();
             }/* else if (itemId == R.id.nav_slideshow) {
 
             } else if (itemId == R.id.nav_manage) {
