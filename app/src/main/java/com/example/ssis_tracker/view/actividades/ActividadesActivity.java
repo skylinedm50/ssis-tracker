@@ -6,12 +6,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import com.example.ssis_tracker.R;
-import com.example.ssis_tracker.adapter.actividades.adapter_actividades;
+import com.example.ssis_tracker.adapter.actividades.FragmentAdapterActividades;
 
 public class ActividadesActivity extends AppCompatActivity {
 
     private ViewPager actividadesViewPager;
-    private adapter_actividades viewPagerAdapter;
+    private FragmentAdapterActividades viewPagerAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class ActividadesActivity extends AppCompatActivity {
 
 
     public void SetViewPager(){
-        viewPagerAdapter = new adapter_actividades(getSupportFragmentManager());
+        viewPagerAdapter = new FragmentAdapterActividades(getSupportFragmentManager());
         for(int i = 0; i  < 5; i++) {
             viewPagerAdapter.AddFragment(ActividadesFragment.NuevaInstancia(i , 5), null);
         }

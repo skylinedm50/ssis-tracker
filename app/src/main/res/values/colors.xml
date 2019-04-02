@@ -10,5 +10,6 @@
     <color name="DividerColor">#BDBDBD</color>
     <color name="CircularIconBase">#7A7A7A</color>
     <color name="TextResaltar">#7E2D2D</color>
+    <color name="imageThemeActivity">#000000</color>
     <!-- todos los titulos van a tener un bold  -->
 </resources>

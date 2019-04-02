@@ -1,282 +1,396 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <RelativeLayout
+    <ScrollView
+        android:id="@+id/ScrollViewActividad"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/card_view_actividad"
-            card_view:cardElevation="@dimen/card_elevation"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            card_view:cardCornerRadius="@dimen/card_corner_radius"
-            card_view:cardUseCompatPadding="true"
-            android:animateLayoutChanges="true">
+            android:layout_height="wrap_content">
 
-            <LinearLayout
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view_actividad"
+                card_view:cardElevation="@dimen/card_elevation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/divides_margin"
-                tools:ignore="MissingConstraints">
+                card_view:cardCornerRadius="@dimen/card_corner_radius"
+                card_view:cardUseCompatPadding="true"
+                android:animateLayoutChanges="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
+                    android:orientation="vertical"
+                    android:padding="@dimen/divides_margin"
+                    tools:ignore="MissingConstraints">
 
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.8"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.8"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="15dp"
+                                android:text="OBTENER CARRO PARA EL TRASLADO DE MOCHILAS"
+                                android:textColor="@color/PrimaryText"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:background="@color/DividerColor"></View>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="15dp"
+                                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                                android:textColor="@color/SecondayText"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:orientation="vertical">
+
+                            <View
+                                android:id="@+id/viewEstadoColor"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/drw_acronym"></View>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="ESTADO"
+                                android:textColor="@color/PrimaryText"
+                                android:textSize="@dimen/text_size_estados"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txt_posicion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/divides_margin"
+                                android:text="1/5"
+                                android:textColor="@color/SecondayText"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="@color/DividerColor"></View>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/divides_margin"
                         android:orientation="vertical">
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="15dp"
-                            android:text="OBTENER CARRO PARA EL TRASLADO DE MOCHILAS"
-                            android:textColor="@color/PrimaryText"
-                            android:textStyle="bold" />
+                            android:layout_marginTop="@dimen/divides_margin"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:id="@+id/rlAcronym"
+                                android:layout_width="@dimen/ly_circular_size"
+                                android:layout_height="@dimen/ly_circular_size"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/drw_acronym"
+                                android:backgroundTint="@color/CircularIconBase">
+
+                                <TextView
+                                    android:id="@+id/txt_acronym"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:text="SIG"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/TextIcons"
+                                    android:textStyle="bold" />
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/txt_direccion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/divides_margin"
+                                android:text="SISTEMA DE INFORMACIÓN GERENCIAL"
+                                android:textColor="@color/PrimaryText"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/divides_margin"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="@dimen/ly_circular_size"
+                                android:layout_height="@dimen/ly_circular_size"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/drw_acronym"
+                                android:backgroundTint="@color/CircularIconBase">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_person" />
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/divides_margin"
+                                android:text="USUARIO RESPONSABLE"
+                                android:textColor="@color/PrimaryText"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/divides_margin"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="@dimen/ly_circular_size"
+                                android:layout_height="@dimen/ly_circular_size"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/drw_acronym"
+                                android:backgroundTint="@color/CircularIconBase">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_launch" />
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/divides_margin"
+                                android:text="FECHA INICIO ESTIMADA"
+                                android:textColor="@color/PrimaryText"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/divides_margin"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="@dimen/ly_circular_size"
+                                android:layout_height="@dimen/ly_circular_size"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/drw_acronym"
+                                android:backgroundTint="@color/CircularIconBase">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_keyboard" />
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/divides_margin"
+                                android:text="FECHA FIN ESTIMADA"
+                                android:textColor="@color/PrimaryText"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/divides_margin"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="@dimen/ly_circular_size"
+                                android:layout_height="@dimen/ly_circular_size"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/drw_acronym"
+                                android:backgroundTint="@color/CircularIconBase">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_calendar"
+                                    android:tint="@color/TextIcons" />
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/divides_margin"
+                                android:text="DIAS HABILES DE DURACION"
+                                android:textColor="@color/PrimaryText"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1px"
+                            android:layout_marginTop="@dimen/divides_margin"
                             android:background="@color/DividerColor"></View>
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="15dp"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-                            android:textColor="@color/SecondayText"
-                            android:textStyle="bold" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.2"
-                        android:orientation="vertical">
-
-                        <View
-                            android:id="@+id/viewEstadoColor"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/drw_acronym"></View>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="ESTADO"
-                            android:textColor="@color/PrimaryText"
-                            android:textSize="@dimen/text_size_estados"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/txt_posicion"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:layout_marginTop="@dimen/divides_margin"
-                            android:text="1/5"
-                            android:textColor="@color/SecondayText"
-                            android:textStyle="bold" />
+                            android:orientation="horizontal">
 
-                    </LinearLayout>
+                            <RelativeLayout
+                                android:layout_width="@dimen/ly_circular_size"
+                                android:layout_height="@dimen/ly_circular_size"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/drw_acronym"
+                                android:backgroundTint="@color/CircularIconBase">
 
-                </LinearLayout>
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_launch" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1px"
-                    android:background="@color/DividerColor"></View>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/divides_margin"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/divides_margin"
-                        android:orientation="horizontal">
-
-                        <RelativeLayout
-                            android:id="@+id/rlAcronym"
-                            android:layout_width="@dimen/ly_circular_size"
-                            android:layout_height="@dimen/ly_circular_size"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/drw_acronym"
-                            android:backgroundTint="@color/CircularIconBase">
+                            </RelativeLayout>
 
                             <TextView
-                                android:id="@+id/txt_acronym"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:text="SIG"
-                                android:textAlignment="center"
-                                android:textColor="@color/TextIcons"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/divides_margin"
+                                android:text="FECHA INICIO REAL"
+                                android:textColor="@color/PrimaryText"
                                 android:textStyle="bold" />
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/txt_direccion"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="@dimen/divides_margin"
-                            android:text="SISTEMA DE INFORMACIÓN GERENCIAL"
-                            android:textColor="@color/PrimaryText"
-                            android:textStyle="bold" />
+                            android:layout_marginTop="@dimen/divides_margin"
+                            android:orientation="horizontal">
 
-                    </LinearLayout>
+                            <RelativeLayout
+                                android:layout_width="@dimen/ly_circular_size"
+                                android:layout_height="@dimen/ly_circular_size"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/drw_acronym"
+                                android:backgroundTint="@color/CircularIconBase">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/divides_margin"
-                        android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_keyboard" />
 
-                        <RelativeLayout
-                            android:layout_width="@dimen/ly_circular_size"
-                            android:layout_height="@dimen/ly_circular_size"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/drw_acronym"
-                            android:backgroundTint="@color/CircularIconBase">
+                            </RelativeLayout>
 
-                            <ImageView
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ic_person" />
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/divides_margin"
+                                android:text="FECHA FIN REAL"
+                                android:textColor="@color/PrimaryText"
+                                android:textStyle="bold" />
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="@dimen/divides_margin"
-                            android:text="USUARIO RESPONSABLE"
-                            android:textColor="@color/PrimaryText"
-                            android:textStyle="bold" />
+                            android:layout_marginTop="@dimen/divides_margin"
+                            android:orientation="horizontal">
 
-                    </LinearLayout>
+                            <RelativeLayout
+                                android:layout_width="@dimen/ly_circular_size"
+                                android:layout_height="@dimen/ly_circular_size"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/drw_acronym"
+                                android:backgroundTint="@color/CircularIconBase">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/divides_margin"
-                        android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_calendar"
+                                    android:tint="@color/TextIcons" />
 
-                        <RelativeLayout
-                            android:layout_width="@dimen/ly_circular_size"
-                            android:layout_height="@dimen/ly_circular_size"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/drw_acronym"
-                            android:backgroundTint="@color/CircularIconBase">
+                            </RelativeLayout>
 
-                            <ImageView
+                            <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ic_launch" />
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/divides_margin"
+                                android:text="DIAS HABILES REALES"
+                                android:textColor="@color/PrimaryText"
+                                android:textStyle="bold" />
 
-                        </RelativeLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="@dimen/divides_margin"
-                            android:text="FECHA INICIO ESTIMADA"
-                            android:textColor="@color/PrimaryText"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/divides_margin"
-                        android:orientation="horizontal">
-
-                        <RelativeLayout
-                            android:layout_width="@dimen/ly_circular_size"
-                            android:layout_height="@dimen/ly_circular_size"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/drw_acronym"
-                            android:backgroundTint="@color/CircularIconBase">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ic_keyboard" />
-
-                        </RelativeLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="@dimen/divides_margin"
-                            android:text="FECHA FIN ESTIMADA"
-                            android:textColor="@color/PrimaryText"
-                            android:textStyle="bold" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/divides_margin"
-                        android:orientation="horizontal">
-
-                        <RelativeLayout
-                            android:layout_width="@dimen/ly_circular_size"
-                            android:layout_height="@dimen/ly_circular_size"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/drw_acronym"
-                            android:backgroundTint="@color/CircularIconBase">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ic_calendar"
-                                android:tint="@color/TextIcons" />
-
-                        </RelativeLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="@dimen/divides_margin"
-                            android:text="DIAS HABILES DE DURACION"
-                            android:textColor="@color/PrimaryText"
-                            android:textStyle="bold" />
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -289,237 +403,135 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="horizontal"
                         android:layout_marginTop="@dimen/divides_margin"
-                        android:orientation="horizontal">
+                        android:weightSum="1">
 
-                        <RelativeLayout
-                            android:layout_width="@dimen/ly_circular_size"
-                            android:layout_height="@dimen/ly_circular_size"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/drw_acronym"
-                            android:backgroundTint="@color/CircularIconBase">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:orientation="vertical">
+
 
                             <ImageView
                                 android:layout_width="wrap_content"
+                                android:layout_gravity="center"
                                 android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ic_launch" />
+                                android:contentDescription="@string/imgContentDescripcion"
+                                android:src="@drawable/ic_equalizer" />
 
-                        </RelativeLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:text="@string/Metas"
+                                android:textColor="@color/PrimaryText"
+                                android:textSize="@dimen/text_size_estados"
+                                android:layout_gravity="center"
+                                android:textStyle="bold"
+                                android:layout_height="wrap_content" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="@dimen/divides_margin"
-                            android:text="FECHA INICIO REAL"
-                            android:textColor="@color/PrimaryText"
-                            android:textStyle="bold" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:orientation="vertical">
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_height="wrap_content"
+                                android:contentDescription="@string/imgContentDescripcion"
+                                android:src="@drawable/ic_visibility" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:text="Dependencias"
+                                android:textColor="@color/PrimaryText"
+                                android:textSize="@dimen/text_size_estados"
+                                android:layout_gravity="center"
+                                android:textStyle="bold"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:id="@+id/LinearLayoutPlus"
                         android:layout_marginTop="@dimen/divides_margin"
-                        android:orientation="horizontal">
+                        android:layout_height="wrap_content">
 
-                        <RelativeLayout
-                            android:layout_width="@dimen/ly_circular_size"
-                            android:layout_height="@dimen/ly_circular_size"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/drw_acronym"
-                            android:backgroundTint="@color/CircularIconBase">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_height="wrap_content">
 
-                            <ImageView
+                            <TextView
                                 android:layout_width="wrap_content"
+                                android:text="@string/Imagenes"
+                                android:layout_gravity="left"
+                                android:textStyle="bold"
+                                android:layout_margin="@dimen/divides_margin"
+                                android:textColor="@color/PrimaryText"
+                                android:layout_height="wrap_content" />
+
+                            <android.support.v7.widget.RecyclerView
+                                android:layout_width="match_parent"
+                                android:id="@+id/RecyclerViewImagenes"
                                 android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ic_keyboard" />
+                                android:overScrollMode="never">
 
-                        </RelativeLayout>
+                            </android.support.v7.widget.RecyclerView>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="@dimen/divides_margin"
-                            android:text="FECHA FIN REAL"
-                            android:textColor="@color/PrimaryText"
-                            android:textStyle="bold" />
+                        </LinearLayout>
 
-                    </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/divides_margin"
-                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="@dimen/divides_margin"
+                            android:layout_height="500dp">
 
-                        <RelativeLayout
-                            android:layout_width="@dimen/ly_circular_size"
-                            android:layout_height="@dimen/ly_circular_size"
-                            android:layout_alignParentTop="true"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/drw_acronym"
-                            android:backgroundTint="@color/CircularIconBase">
-
-                            <ImageView
+                            <TextView
                                 android:layout_width="wrap_content"
+                                android:text="@string/Comentario"
+                                android:layout_gravity="left"
+                                android:textStyle="bold"
+                                android:layout_margin="@dimen/divides_margin"
+                                android:textColor="@color/PrimaryText"
+                                android:layout_height="wrap_content" />
+
+                            <android.support.v7.widget.RecyclerView
+                                android:layout_width="match_parent"
+                                android:id="@+id/rvComentarios"
                                 android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:src="@drawable/ic_calendar"
-                                android:tint="@color/TextIcons" />
+                                android:overScrollMode="never">
 
-                        </RelativeLayout>
+                            </android.support.v7.widget.RecyclerView>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="@dimen/divides_margin"
-                            android:text="DIAS HABILES REALES"
-                            android:textColor="@color/PrimaryText"
-                            android:textStyle="bold" />
+                        </LinearLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1px"
-                    android:layout_marginTop="@dimen/divides_margin"
-                    android:background="@color/DividerColor"></View>
+            </android.support.v7.widget.CardView>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/divides_margin"
-                    android:weightSum="1">
+        </RelativeLayout>
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.33"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:orientation="vertical">
+    </ScrollView>
 
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/imgContentDescripcion"
-                            android:src="@drawable/ic_equalizer" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:text="@string/Metas"
-                            android:textColor="@color/PrimaryText"
-                            android:textSize="@dimen/text_size_estados"
-                            android:layout_gravity="center"
-                            android:textStyle="bold"
-                            android:layout_height="wrap_content" />
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.33"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:orientation="vertical">
-
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/imgContentDescripcion"
-                            android:src="@drawable/ic_visibility" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:text="Dependencias"
-                            android:textColor="@color/PrimaryText"
-                            android:textSize="@dimen/text_size_estados"
-                            android:layout_gravity="center"
-                            android:textStyle="bold"
-                            android:layout_height="wrap_content" />
-
-                    </LinearLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="0.33"
-                        android:clickable="true"
-                        android:id="@+id/rl_Expand_Comentarios"
-                        android:focusable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerInParent="true"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/imgContentDescripcion"
-                            android:src="@drawable/ic_key_down" />
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/LinearLayoutComentarios"
-                    android:layout_marginTop="@dimen/divides_margin"
-                    android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:visibility="gone"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:text="@string/Comentario"
-                        android:layout_gravity="left"
-                        android:textStyle="bold"
-                        android:layout_margin="@dimen/divides_margin"
-                        android:textColor="@color/PrimaryText"
-                        android:layout_height="wrap_content" />
-
-                    <android.support.v7.widget.RecyclerView
-                        android:layout_width="match_parent"
-                        android:id="@+id/rvComentarios"
-                        android:layout_height="wrap_content"
-                        android:overScrollMode="never">
-
-                    </android.support.v7.widget.RecyclerView>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:id="@+id/RelativeLayoutBottomSheet"
-            android:elevation="10dp"
-            android:layout_alignParentBottom="true"
-            android:layout_height="10dp"></RelativeLayout>
-
-    </RelativeLayout>
-
-
-</ScrollView>
+</android.support.design.widget.CoordinatorLayout>

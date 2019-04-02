@@ -34,6 +34,12 @@
             android:label="Actividades"
             android:launchMode="singleTask"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.imagenesdocs.ImagenesDocActivity"
+            android:label="Documentos de la actividad"
+            android:launchMode="singleTask"
+            android:theme="@style/AppThemeImage" />
+
     </application>
 
 </manifest>

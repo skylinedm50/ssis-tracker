@@ -49,21 +49,7 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
 
     @Override
     public void onBindViewHolder(@NonNull HolderDirecciones holderDirecciones, final int i) {
-       Random random = new Random();
-       int idDrawable = 0;
-
-        switch (random.nextInt(2)){
-            case 0:
-                idDrawable = R.drawable.ssis4;
-                break;
-            case 1:
-                idDrawable = R.drawable.ssis1;
-                break;
-            case 3:
-                idDrawable = R.drawable.ssis3;
-                break;
-        }
-        Glide.with(this.context).load(idDrawable).centerCrop().into(holderDirecciones.imageViewDireccion);
+        Glide.with(this.context).load(R.drawable.ssis4).centerCrop().into(holderDirecciones.imageViewDireccion);
 
         holderDirecciones.textViewSiglas.setText(arrayList.get(i).getSiglas());
         holderDirecciones.textViewNombreDireccion.setText(arrayList.get(i).getNombre());
