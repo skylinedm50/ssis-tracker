@@ -47,7 +47,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="15dp"
-                                android:text="OBTENER CARRO PARA EL TRASLADO DE MOCHILAS"
+                                android:id="@+id/TextViewNombreActividad"
                                 android:textColor="@color/PrimaryText"
                                 android:textStyle="bold" />
 
@@ -57,10 +57,10 @@
                                 android:background="@color/DividerColor"></View>
 
                             <TextView
+                                android:id="@+id/TextViewDescripcionActividad"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="15dp"
-                                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
                                 android:textColor="@color/SecondayText"
                                 android:textStyle="bold" />
 
@@ -81,6 +81,7 @@
                                 android:background="@drawable/drw_acronym"></View>
 
                             <TextView
+                                android:id="@+id/TextViewEstadoDescripcion"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -130,11 +131,10 @@
                                 android:backgroundTint="@color/CircularIconBase">
 
                                 <TextView
-                                    android:id="@+id/txt_acronym"
+                                    android:id="@+id/TextViewSiglas"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerInParent="true"
-                                    android:text="SIG"
                                     android:textAlignment="center"
                                     android:textColor="@color/TextIcons"
                                     android:textStyle="bold" />
@@ -142,12 +142,11 @@
                             </RelativeLayout>
 
                             <TextView
-                                android:id="@+id/txt_direccion"
+                                android:id="@+id/TextViewDireccion"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="@dimen/divides_margin"
-                                android:text="SISTEMA DE INFORMACIÓN GERENCIAL"
                                 android:textColor="@color/PrimaryText"
                                 android:textStyle="bold" />
 
@@ -176,11 +175,11 @@
                             </RelativeLayout>
 
                             <TextView
+                                android:id="@+id/TextViewUsuarioResponsable"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="@dimen/divides_margin"
-                                android:text="USUARIO RESPONSABLE"
                                 android:textColor="@color/PrimaryText"
                                 android:textStyle="bold" />
 
@@ -209,11 +208,11 @@
                             </RelativeLayout>
 
                             <TextView
+                                android:id="@+id/TextViewFechaInicioEstimada"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="@dimen/divides_margin"
-                                android:text="FECHA INICIO ESTIMADA"
                                 android:textColor="@color/PrimaryText"
                                 android:textStyle="bold" />
 
@@ -242,11 +241,11 @@
                             </RelativeLayout>
 
                             <TextView
+                                android:id="@+id/TextViewFechaFinEstimada"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="@dimen/divides_margin"
-                                android:text="FECHA FIN ESTIMADA"
                                 android:textColor="@color/PrimaryText"
                                 android:textStyle="bold" />
 
@@ -276,11 +275,11 @@
                             </RelativeLayout>
 
                             <TextView
+                                android:id="@+id/DiasHabilesDuracion"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="@dimen/divides_margin"
-                                android:text="DIAS HABILES DE DURACION"
                                 android:textColor="@color/PrimaryText"
                                 android:textStyle="bold" />
 
@@ -315,11 +314,11 @@
                             </RelativeLayout>
 
                             <TextView
+                                android:id="@+id/TextViewFechaInicioReal"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="@dimen/divides_margin"
-                                android:text="FECHA INICIO REAL"
                                 android:textColor="@color/PrimaryText"
                                 android:textStyle="bold" />
 
@@ -348,11 +347,11 @@
                             </RelativeLayout>
 
                             <TextView
+                                android:id="@+id/TextViewFechaFinReal"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="@dimen/divides_margin"
-                                android:text="FECHA FIN REAL"
                                 android:textColor="@color/PrimaryText"
                                 android:textStyle="bold" />
 
@@ -382,11 +381,11 @@
                             </RelativeLayout>
 
                             <TextView
+                                android:id="@+id/TextViewDiasHabilesReales"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="@dimen/divides_margin"
-                                android:text="DIAS HABILES REALES"
                                 android:textColor="@color/PrimaryText"
                                 android:textStyle="bold" />
 
@@ -408,6 +407,7 @@
                         android:weightSum="1">
 
                         <LinearLayout
+                            android:id="@+id/LinearLayoutMetas"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="0.5"
@@ -437,6 +437,7 @@
 
 
                         <LinearLayout
+                            android:id="@+id/LinearLayoutDependencia"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="0.5"

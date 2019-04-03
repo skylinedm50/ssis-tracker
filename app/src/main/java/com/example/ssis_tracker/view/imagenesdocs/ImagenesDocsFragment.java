@@ -7,11 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.bumptech.glide.Glide;
 import com.example.ssis_tracker.R;
 import com.github.chrisbanes.photoview.PhotoView;
-
 
 public class ImagenesDocsFragment extends Fragment {
 
@@ -29,7 +27,6 @@ public class ImagenesDocsFragment extends Fragment {
         View imageDocsFragment   = inflater.inflate(R.layout.fragment_imgdocs , container , false);
         PhotoView PhotoViewImagenDoc = imageDocsFragment.findViewById(R.id.PhotoViewImagenDoc);
         Glide.with(this.getContext()).load(getArguments().getString("imgUrl")).centerCrop().into(PhotoViewImagenDoc);
-
         return  imageDocsFragment;
     }
 }
