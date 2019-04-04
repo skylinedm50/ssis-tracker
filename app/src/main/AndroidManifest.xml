@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.procesos.ProcesoActivity"
+            android:name=".view.procesos.ProcesosActivity"
             android:label="Procesos"></activity>
         <activity
             android:name=".view.home.HomeActivity"

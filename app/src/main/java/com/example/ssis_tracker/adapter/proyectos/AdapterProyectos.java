@@ -25,7 +25,7 @@ import com.example.ssis_tracker.api.proyectos.ApiAdapterProyectos;
 import com.example.ssis_tracker.api.proyectos.ApiServiceProyectos;
 import com.example.ssis_tracker.model.Meta;
 import com.example.ssis_tracker.model.Proyecto;
-import com.example.ssis_tracker.view.procesos.ProcesoActivity;
+import com.example.ssis_tracker.view.procesos.ProcesosActivity;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -74,7 +74,7 @@ public class AdapterProyectos extends RecyclerView.Adapter<AdapterProyectos.Hold
 
         Drawable drawable = holderProyectos.viewEstadoColor.getBackground();
         GradientDrawable gradientDrawable = (GradientDrawable) drawable;
-        gradientDrawable.setColor(Color.parseColor( arrayList.get(i).getColor()));
+        gradientDrawable.setColor(Color.parseColor(arrayList.get(i).getColor()));
 
         generarChart(arrayList.get(i).getPorcentajeProcesos(), holderProyectos.pieChartRealizado, 8f);
         generarChart(arrayList.get(i).getPorcentajeDias() > 100 ? 100: arrayList.get(i).getPorcentajeDias(), holderProyectos.pieChartDiasTranscurridos,8f);
@@ -85,7 +85,6 @@ public class AdapterProyectos extends RecyclerView.Adapter<AdapterProyectos.Hold
         lastPosition = i;
 
         /**Evento*/
-
         holderProyectos.linearLayoutPumpunear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +105,9 @@ public class AdapterProyectos extends RecyclerView.Adapter<AdapterProyectos.Hold
         holderProyectos.cardViewProyecto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ProcesoActivity.class);
+                Intent intent = new Intent(v.getContext(), ProcesosActivity.class);
+                intent.putExtra("proyecto", arrayList.get(i).getId());
+                intent.putExtra("nombre", arrayList.get(i).getNombre());
                 v.getContext().startActivity(intent);
             }
         });
@@ -184,9 +185,8 @@ public class AdapterProyectos extends RecyclerView.Adapter<AdapterProyectos.Hold
 
     private void showPoppupMetas(int proyecto, final View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-        View viewInflate = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_metas_proyecto, null);
+        View viewInflate = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_metas, null);
 
-        TextView ngButtonContinue = viewInflate.findViewById(R.id.ngButtonContinue);
         RecyclerView recyclerViewMetas = viewInflate.findViewById(R.id.recyclerViewMetas);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
 
@@ -195,13 +195,6 @@ public class AdapterProyectos extends RecyclerView.Adapter<AdapterProyectos.Hold
         recyclerViewMetas.setLayoutManager(linearLayoutManager);
 
         getMetas(proyecto, viewInflate);
-
-        ngButtonContinue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialog.dismiss();
-            }
-        });
 
         builder.setView(viewInflate);
         alertDialog = builder.create();

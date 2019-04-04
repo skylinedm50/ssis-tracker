@@ -96,7 +96,6 @@
                         android:textColor="@color/PrimaryText"
                         android:layout_height="wrap_content" />
 
-
                 </LinearLayout>
 
                 <LinearLayout

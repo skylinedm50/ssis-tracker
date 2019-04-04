@@ -1,46 +1,49 @@
 package com.example.ssis_tracker.model;
 
 public class Proceso {
-    private int idProyecto;
-    private String Nombre_Proyecto;
-    private String Descripcion;
-    private int idEstado;
+    private int id;
+    private String nombre;
+    private String descripcion;
+    private String estado;
+    private String color;
 
-    public Proceso(String Nombre_Proyecto, String Descripcion){
-        this.Nombre_Proyecto = Nombre_Proyecto;
-        this.Descripcion = Descripcion;
-    }
-    public Proceso(){}
-
-    public int getIdProyecto() {
-        return idProyecto;
+    public int getId() {
+        return id;
     }
 
-    public void setIdProyecto(int idProyecto) {
-        this.idProyecto = idProyecto;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getNombre_Proyecto() {
-        return Nombre_Proyecto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombre_Proyecto(String nombre_Proyecto) {
-        Nombre_Proyecto = nombre_Proyecto;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+        this.descripcion = descripcion;
     }
 
-    public int getIdEstado() {
-        return idEstado;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setIdEstado(int idEstado) {
-        this.idEstado = idEstado;
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

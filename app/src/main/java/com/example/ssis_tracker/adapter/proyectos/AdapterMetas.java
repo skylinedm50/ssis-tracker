@@ -51,7 +51,7 @@ public class AdapterMetas extends  RecyclerView.Adapter<AdapterMetas.HolderMetas
     public void onBindViewHolder(@NonNull HolderMetas holderMetas, int i) {
         holderMetas.textViewActividad.setText(metaArrayList.get(i).getActividad());
         holderMetas.textViewMetrica.setText(metaArrayList.get(i).getUnidad() +  " - " +  String.valueOf(metaArrayList.get(i).getProgramado()));
-        generarChart(45, holderMetas.pieAvanceMetas, 10f);
+        generarChart(metaArrayList.get(i).getPorcentajeEjecutado(), holderMetas.pieAvanceMetas, 10f);
     }
 
     @Override
