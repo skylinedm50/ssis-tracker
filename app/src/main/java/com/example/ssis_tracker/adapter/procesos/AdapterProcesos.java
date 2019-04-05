@@ -67,17 +67,17 @@ public class AdapterProcesos extends RecyclerView.Adapter<AdapterProcesos.Holder
         }
     }
 
-    @Override
-    public void onViewDetachedFromWindow(@NonNull AdapterProcesos.HolderProcess holder) {
-        super.onViewDetachedFromWindow(holder);
-        holder.itemView.clearAnimation();
-    }
-
     @NonNull
     @Override
     public AdapterProcesos.HolderProcess onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_proceso, viewGroup, false);
         return new AdapterProcesos.HolderProcess(view);
+    }
+
+    @Override
+    public void onViewDetachedFromWindow(@NonNull AdapterProcesos.HolderProcess holder) {
+        super.onViewDetachedFromWindow(holder);
+        holder.itemView.clearAnimation();
     }
 
     @Override
@@ -103,6 +103,8 @@ public class AdapterProcesos extends RecyclerView.Adapter<AdapterProcesos.Holder
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext() , ActividadesActivity.class);
+                intent.putExtra("proceso", procesoArrayList.get(i).getId());
+                intent.putExtra("nombre", procesoArrayList.get(i).getNombre());
                 v.getContext().startActivity(intent);
             }
         });

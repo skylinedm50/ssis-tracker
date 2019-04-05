@@ -7,16 +7,12 @@
     android:layout_height="wrap_content">
 
     <ScrollView
-        android:id="@+id/ScrollViewActividad"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
             <android.support.v7.widget.CardView
-                android:id="@+id/card_view_actividad"
                 card_view:cardElevation="@dimen/card_elevation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,23 +43,22 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="15dp"
-                                android:id="@+id/TextViewNombreActividad"
+                                android:id="@+id/textViewNombreActividad"
                                 android:textColor="@color/PrimaryText"
                                 android:textStyle="bold" />
 
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1px"
-                                android:background="@color/DividerColor"></View>
+                                android:background="@color/DividerColor"/>
 
                             <TextView
-                                android:id="@+id/TextViewDescripcionActividad"
+                                android:id="@+id/textViewDescripcionActividad"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="15dp"
                                 android:textColor="@color/SecondayText"
                                 android:textStyle="bold" />
-
 
                         </LinearLayout>
 
@@ -78,10 +73,10 @@
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:layout_gravity="center"
-                                android:background="@drawable/drw_acronym"></View>
+                                android:background="@drawable/drw_acronym"/>
 
                             <TextView
-                                android:id="@+id/TextViewEstadoDescripcion"
+                                android:id="@+id/textViewEstado"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -91,7 +86,7 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/txt_posicion"
+                                android:id="@+id/textViewPosicion"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -107,7 +102,7 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1px"
-                        android:background="@color/DividerColor"></View>
+                        android:background="@color/DividerColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -119,10 +114,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/divides_margin"
+                            android:gravity="center"
                             android:orientation="horizontal">
 
                             <RelativeLayout
-                                android:id="@+id/rlAcronym"
                                 android:layout_width="@dimen/ly_circular_size"
                                 android:layout_height="@dimen/ly_circular_size"
                                 android:layout_alignParentTop="true"
@@ -131,7 +126,7 @@
                                 android:backgroundTint="@color/CircularIconBase">
 
                                 <TextView
-                                    android:id="@+id/TextViewSiglas"
+                                    android:id="@+id/textViewSiglas"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerInParent="true"
@@ -141,23 +136,36 @@
 
                             </RelativeLayout>
 
-                            <TextView
-                                android:id="@+id/TextViewDireccion"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/divides_margin"
-                                android:textColor="@color/PrimaryText"
-                                android:textStyle="bold" />
+                                android:orientation="vertical"
+                                android:padding="15dp">
+                                <TextView
+                                    android:id="@+id/textViewDireccion"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/PrimaryText"
+                                    android:textStyle="bold" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Dirección"
+                                    android:textColor="@color/SecondayText"
+                                    android:textAllCaps="true"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:layout_marginTop="@dimen/divides_margin"
                             android:orientation="horizontal">
-
                             <RelativeLayout
                                 android:layout_width="@dimen/ly_circular_size"
                                 android:layout_height="@dimen/ly_circular_size"
@@ -173,15 +181,27 @@
                                     android:src="@drawable/ic_person" />
 
                             </RelativeLayout>
-
-                            <TextView
-                                android:id="@+id/TextViewUsuarioResponsable"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/divides_margin"
-                                android:textColor="@color/PrimaryText"
-                                android:textStyle="bold" />
+                                android:padding="15dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/textViewResponsable"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/PrimaryText"
+                                    android:textStyle="bold" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Responsable"
+                                    android:textColor="@color/SecondayText"
+                                    android:textAllCaps="true"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -189,6 +209,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/divides_margin"
+                            android:gravity="center"
                             android:orientation="horizontal">
 
                             <RelativeLayout
@@ -206,22 +227,33 @@
                                     android:src="@drawable/ic_launch" />
 
                             </RelativeLayout>
-
-                            <TextView
-                                android:id="@+id/TextViewFechaInicioEstimada"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/divides_margin"
-                                android:textColor="@color/PrimaryText"
-                                android:textStyle="bold" />
-
+                                android:padding="15dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/textViewFechaInicioPrevista"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/PrimaryText"
+                                    android:textStyle="bold" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="FECHA INICIO PREVISTA"
+                                    android:textColor="@color/SecondayText"
+                                    android:textAllCaps="true"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/divides_margin"
+                            android:gravity="center"
                             android:orientation="horizontal">
 
                             <RelativeLayout
@@ -239,15 +271,27 @@
                                     android:src="@drawable/ic_keyboard" />
 
                             </RelativeLayout>
-
-                            <TextView
-                                android:id="@+id/TextViewFechaFinEstimada"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/divides_margin"
-                                android:textColor="@color/PrimaryText"
-                                android:textStyle="bold" />
+                                android:gravity="center"
+                                android:padding="15dp"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/textViewFechaFinPrevista"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/PrimaryText"
+                                    android:textAllCaps="true"
+                                    android:textStyle="bold" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="FECHA FIN PREVISTA"
+                                    android:textColor="@color/SecondayText"
+                                    android:textAllCaps="true"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -255,7 +299,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/divides_margin"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:gravity="center">
 
                             <RelativeLayout
                                 android:layout_width="@dimen/ly_circular_size"
@@ -274,14 +319,27 @@
 
                             </RelativeLayout>
 
-                            <TextView
-                                android:id="@+id/DiasHabilesDuracion"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/divides_margin"
-                                android:textColor="@color/PrimaryText"
-                                android:textStyle="bold" />
+                                android:padding="15dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/textViewDiasHabilesPrevistos"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/PrimaryText"
+                                    android:textAllCaps="true"
+                                    android:textStyle="bold" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="DÍAS HABILES PREVISTOS"
+                                    android:textColor="@color/SecondayText"
+                                    android:textAllCaps="true"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -295,7 +353,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/divides_margin"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:gravity="center">
 
                             <RelativeLayout
                                 android:layout_width="@dimen/ly_circular_size"
@@ -312,15 +371,27 @@
                                     android:src="@drawable/ic_launch" />
 
                             </RelativeLayout>
-
-                            <TextView
-                                android:id="@+id/TextViewFechaInicioReal"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/divides_margin"
-                                android:textColor="@color/PrimaryText"
-                                android:textStyle="bold" />
+                                android:padding="15dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/textViewFechaInicioReal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/PrimaryText"
+                                    android:textAllCaps="true"
+                                    android:textStyle="bold" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="FECHA INICIO REAL"
+                                    android:textColor="@color/SecondayText"
+                                    android:textAllCaps="true"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -328,7 +399,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/divides_margin"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:gravity="center">
 
                             <RelativeLayout
                                 android:layout_width="@dimen/ly_circular_size"
@@ -345,15 +417,27 @@
                                     android:src="@drawable/ic_keyboard" />
 
                             </RelativeLayout>
-
-                            <TextView
-                                android:id="@+id/TextViewFechaFinReal"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/divides_margin"
-                                android:textColor="@color/PrimaryText"
-                                android:textStyle="bold" />
+                                android:padding="15dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/textViewFechaFinReal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/PrimaryText"
+                                    android:textAllCaps="true"
+                                    android:textStyle="bold" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="FECHA FIN REAL"
+                                    android:textColor="@color/SecondayText"
+                                    android:textAllCaps="true"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -361,7 +445,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/divides_margin"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:gravity="center">
 
                             <RelativeLayout
                                 android:layout_width="@dimen/ly_circular_size"
@@ -379,15 +464,27 @@
                                     android:tint="@color/TextIcons" />
 
                             </RelativeLayout>
-
-                            <TextView
-                                android:id="@+id/TextViewDiasHabilesReales"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginLeft="@dimen/divides_margin"
-                                android:textColor="@color/PrimaryText"
-                                android:textStyle="bold" />
+                                android:padding="15dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/textViewDiasHabilesReales"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/PrimaryText"
+                                    android:textAllCaps="true"
+                                    android:textStyle="bold" />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="DÍAS HABILES REALES"
+                                    android:textColor="@color/SecondayText"
+                                    android:textAllCaps="true"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -397,7 +494,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1px"
                         android:layout_marginTop="@dimen/divides_margin"
-                        android:background="@color/DividerColor"></View>
+                        android:background="@color/DividerColor"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -407,7 +504,7 @@
                         android:weightSum="1">
 
                         <LinearLayout
-                            android:id="@+id/LinearLayoutMetas"
+                            android:id="@+id/linearLayoutMetas"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="0.5"
@@ -416,14 +513,12 @@
                             android:foreground="?android:attr/selectableItemBackground"
                             android:orientation="vertical">
 
-
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_height="wrap_content"
                                 android:contentDescription="@string/imgContentDescripcion"
                                 android:src="@drawable/ic_equalizer" />
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:text="@string/Metas"
@@ -432,12 +527,10 @@
                                 android:layout_gravity="center"
                                 android:textStyle="bold"
                                 android:layout_height="wrap_content" />
-
                         </LinearLayout>
 
-
                         <LinearLayout
-                            android:id="@+id/LinearLayoutDependencia"
+                            android:id="@+id/linearLayoutDependencia"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="0.5"
@@ -445,8 +538,6 @@
                             android:focusable="true"
                             android:foreground="?android:attr/selectableItemBackground"
                             android:orientation="vertical">
-
-
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_gravity="center"
@@ -471,15 +562,12 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:orientation="vertical"
-                        android:id="@+id/LinearLayoutPlus"
                         android:layout_marginTop="@dimen/divides_margin"
                         android:layout_height="wrap_content">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:orientation="vertical"
                             android:layout_height="wrap_content">
-
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:text="@string/Imagenes"
@@ -491,7 +579,7 @@
 
                             <android.support.v7.widget.RecyclerView
                                 android:layout_width="match_parent"
-                                android:id="@+id/RecyclerViewImagenes"
+                                android:id="@+id/recyclerViewImagenes"
                                 android:layout_height="wrap_content"
                                 android:overScrollMode="never">
 
@@ -517,7 +605,7 @@
 
                             <android.support.v7.widget.RecyclerView
                                 android:layout_width="match_parent"
-                                android:id="@+id/rvComentarios"
+                                android:id="@+id/recyclerViewComentarios"
                                 android:layout_height="wrap_content"
                                 android:overScrollMode="never">
 

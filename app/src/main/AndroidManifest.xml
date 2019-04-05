@@ -33,6 +33,7 @@
             android:name=".view.actividades.ActividadesActivity"
             android:label="Actividades"
             android:launchMode="singleTask"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".view.imagenesdocs.ImagenesDocActivity"

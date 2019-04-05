@@ -38,7 +38,7 @@ public class AdapterDirecciones extends RecyclerView.Adapter<AdapterDirecciones.
     @Override
     public HolderDirecciones onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_direcciones, viewGroup ,false);
-        return  new HolderDirecciones(view);
+        return new HolderDirecciones(view);
     }
 
     @Override

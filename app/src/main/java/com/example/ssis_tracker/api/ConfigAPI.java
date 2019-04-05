@@ -1,9 +1,9 @@
 package com.example.ssis_tracker.api;
 
 public class ConfigAPI {
-   private String Port ;
+   private String Port;
    private String IPExterna;
-    private String IPinterna ;
+   private String IPinterna;
    private String URL;
 
     public ConfigAPI() {
