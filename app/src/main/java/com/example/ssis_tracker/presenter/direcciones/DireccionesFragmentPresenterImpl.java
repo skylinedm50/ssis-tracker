@@ -4,10 +4,10 @@ import com.example.ssis_tracker.interactor.direcciones.DireccionesFragmentIntera
 import com.example.ssis_tracker.interactor.direcciones.DireccionesFragmentInteractorImpl;
 import com.example.ssis_tracker.model.Direccion;
 import com.example.ssis_tracker.view.direcciones.DireccionesFragmentView;
-
 import java.util.ArrayList;
 
 public class DireccionesFragmentPresenterImpl implements DireccionesFragmentPresenter {
+
     private DireccionesFragmentView direccionesFragmentView;
     private DireccionesFragmentInteractor direccionesFragmentInteractor;
 

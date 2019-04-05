@@ -10,6 +10,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface ApiServiceProcesos {
+
     @GET("procesos/get/{proyecto}")
     Call<ArrayList<Proceso>> getProcesos(@Path("proyecto") int proyecto);
 

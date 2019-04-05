@@ -20,4 +20,9 @@
     <string name="imgContentDescripcion">Content Description</string>
     <string name="Comentario">COMENTARIOS</string>
     <string name="Imagenes">IMAGENES</string>
+    <string name="procesosregistrados">Procesos Registrados</string>
+    <string name="Eficiencia">Eficiencia</string>
+    <string name="procesosAtrasado">Procesos atrasados</string>
+    <string name="procesosTerminados">Procesos terminados</string>
+    <string name="procesosTerminadosATiempo">Procesos terminados a tiempo</string>
 </resources>

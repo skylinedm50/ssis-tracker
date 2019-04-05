@@ -5,6 +5,7 @@ import com.example.ssis_tracker.repository.direcciones.DireccionesFragmentReposi
 import com.example.ssis_tracker.repository.direcciones.DireccionesFragmentRepositoryImpl;
 
 public class DireccionesFragmentInteractorImpl implements DireccionesFragmentInteractor {
+
     private DireccionesFragmentPresenter direccionesFragmentPresenter;
     private DireccionesFragmentRepository direccionesFragmentRepository;
 
