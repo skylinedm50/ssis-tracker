@@ -4,14 +4,13 @@ import com.example.ssis_tracker.api.direcciones.ApiAdapterDirecciones;
 import com.example.ssis_tracker.api.direcciones.ApiServiceDirecciones;
 import com.example.ssis_tracker.model.Direccion;
 import com.example.ssis_tracker.presenter.direcciones.DireccionesFragmentPresenter;
-
 import java.util.ArrayList;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DireccionesFragmentRepositoryImpl implements  DireccionesFragmentRepository {
+
     private DireccionesFragmentPresenter direccionesFragmentPresenter;
     private ApiAdapterDirecciones adapterDirecciones;
     private ApiServiceDirecciones serviceDirecciones;

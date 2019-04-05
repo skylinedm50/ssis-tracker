@@ -13,13 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.ssis_tracker.R;
 import com.example.ssis_tracker.adapter.direcciones.AdapterDirecciones;
 import com.example.ssis_tracker.model.Direccion;
 import com.example.ssis_tracker.presenter.direcciones.DireccionesFragmentPresenter;
 import com.example.ssis_tracker.presenter.direcciones.DireccionesFragmentPresenterImpl;
-
 import java.util.ArrayList;
 
 public class DireccionesFragment extends Fragment implements  DireccionesFragmentView{

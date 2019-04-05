@@ -46,7 +46,6 @@
                         android:layout_width="@dimen/ly_circular_size"
                         android:id="@+id/relativeLayoutSiglas"
                         android:background="@drawable/drw_acronym"
-                        android:layout_alignParentTop="true"
                         android:layout_centerInParent="true"
                         android:layout_height="@dimen/ly_circular_size">
 
@@ -54,7 +53,6 @@
                             android:layout_width="wrap_content"
                             android:id="@+id/textViewSiglas"
                             android:textAlignment="center"
-                            android:text=""
                             android:textStyle="bold"
                             android:textColor="@color/TextIcons"
                             android:layout_centerInParent="true"
@@ -63,6 +61,11 @@
                     </RelativeLayout>
 
                 </RelativeLayout>
+                <View
+                    android:layout_width="2px"
+                    android:background="@color/DividerColor"
+                    android:layout_marginRight="@dimen/divides_margin"
+                    android:layout_height="match_parent"></View>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -75,7 +78,7 @@
                         android:id="@+id/textViewNombreDireccion"
                         android:textColor="@color/PrimaryText"
                         android:textStyle="bold"
-                        android:text=""
+                        android:textAllCaps="true"
                         android:layout_height="wrap_content" />
                     <TextView
                         android:layout_width="match_parent"

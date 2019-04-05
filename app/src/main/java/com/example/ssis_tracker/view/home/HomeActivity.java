@@ -15,11 +15,11 @@ import com.example.ssis_tracker.R;
 import com.example.ssis_tracker.view.agenda.AgendaFragment;
 import com.example.ssis_tracker.view.direcciones.DireccionesFragment;
 import com.example.ssis_tracker.view.performance.PerformanceFragment;
-
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, HomeActivityView {
+
     int itemIdSelect;
     DrawerLayout drawerLayout;
     ConstraintLayout constraintLayout;
@@ -55,19 +55,13 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -78,9 +72,8 @@ public class HomeActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        // Handle navigation view item clicks here.
-        int itemId = item.getItemId();
 
+        int itemId = item.getItemId();
         if(itemId != itemIdSelect) {
             if (itemId == R.id.nav_direcciones) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.constraintLayout, new DireccionesFragment()).addToBackStack(null).commit();
