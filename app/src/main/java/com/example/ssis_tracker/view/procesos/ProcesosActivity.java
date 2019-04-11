@@ -1,11 +1,18 @@
 package com.example.ssis_tracker.view.procesos;
 
+import android.app.SearchManager;
+import android.content.Context;
+import android.graphics.Color;
+import android.os.Build;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -27,6 +34,8 @@ public class ProcesosActivity extends AppCompatActivity implements  ProcesosActi
     private TextView textViewNombreProyecto;
     private int proyecto;
     private String nombreProyecto;
+    private MenuItem searchItem;
+    private ArrayList<Proceso> procesosArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +63,50 @@ public class ProcesosActivity extends AppCompatActivity implements  ProcesosActi
                 getProcesos(proyecto);
             }
         });
+
+
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        SearchManager searchManager = (SearchManager) ProcesosActivity.this.getSystemService(Context.SEARCH_SERVICE);
+
+        menuInflater.inflate(R.menu.direcciones, menu);
+        this.searchItem = menu.findItem(R.id.searchViewFind);
+
+
+        SearchView searchView = null;
+        if (searchItem != null) {
+            searchView = (SearchView) searchItem.getActionView();
+        }
+        if (searchView != null) {
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(ProcesosActivity.this.getComponentName()));
+        }
+        searchView.setQueryHint("Buscar Proceso...");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                ArrayList <Proceso> listClone = new ArrayList<Proceso>();
+                if(procesosArrayList != null || !s.equals("")){
+                    for(Proceso proceso : procesosArrayList){
+                        if(proceso.getNombre().toUpperCase().contains(s.toUpperCase())){
+                            listClone.add(proceso);
+
+                        }
+                    }
+                    adapterProcesos.adapterDataChange(listClone);
+                }
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -83,6 +136,7 @@ public class ProcesosActivity extends AppCompatActivity implements  ProcesosActi
     @Override
     public void showProcesos(ArrayList<Proceso> procesoArrayList) {
         showSwipeRefreshLayout(false);
+        this.procesosArrayList = procesoArrayList;
         adapterProcesos.adapterDataChange(procesoArrayList);
         textWithoutData.setVisibility(View.GONE);
     }

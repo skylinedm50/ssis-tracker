@@ -1,5 +1,8 @@
 package com.example.ssis_tracker.view.direcciones;
 
+
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,7 +12,11 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -24,10 +31,12 @@ public class DireccionesFragment extends Fragment implements  DireccionesFragmen
     View view;
     AdapterDirecciones adapterDirecciones;
     DireccionesFragmentPresenter direccionesFragmentPresenter;
+
     private SwipeRefreshLayout swipeRefreshLayout;
     private RecyclerView recyclerViewDirecciones;
     private TextView textWithoutData;
-
+    private MenuItem searchItem;
+    private ArrayList<Direccion> direccionArrayList;
     public DireccionesFragment(){}
 
     @Override
@@ -57,9 +66,51 @@ public class DireccionesFragment extends Fragment implements  DireccionesFragmen
                 getDirecciones();
             }
         });
+        setHasOptionsMenu(true);
 
         configAppBar(false);
         return view;
+
+
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+
+
+        inflater.inflate(R.menu.direcciones, menu);
+        this.searchItem = menu.findItem(R.id.searchViewFind);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            this.searchItem.getIcon().setTint(Color.WHITE);
+        }
+        this.searchItem.setEnabled(true);
+        this.searchItem.setVisible(true);
+
+        SearchView searchView = (SearchView) searchItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                ArrayList <Direccion> listClone = new ArrayList<Direccion>();
+                if(direccionArrayList != null || !s.equals("")) {
+                    for (Direccion direccion : direccionArrayList) {
+                        if (direccion.getNombre().toUpperCase().contains(s.toUpperCase())) {
+                            listClone.add(direccion);
+                        }
+                    }
+                    adapterDirecciones.adapterDataChange(listClone);
+                }
+                return false;
+            }
+        });
+        searchView.setQueryHint("Buscar Dirección...");
+
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
@@ -79,6 +130,7 @@ public class DireccionesFragment extends Fragment implements  DireccionesFragmen
     public void showDirecciones(ArrayList<Direccion> direccionArrayList) {
         showSwipeRefreshLayout(false);
         adapterDirecciones.adapterDataChange(direccionArrayList);
+        this.direccionArrayList = direccionArrayList;
         textWithoutData.setVisibility(View.GONE);
     }
 

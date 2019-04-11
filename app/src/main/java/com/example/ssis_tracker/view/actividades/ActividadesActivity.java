@@ -1,11 +1,17 @@
 package com.example.ssis_tracker.view.actividades;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -24,6 +30,8 @@ public class ActividadesActivity extends AppCompatActivity implements Actividade
     private TextView textWithoutData;
     private SwipeRefreshLayout swipeRefreshLayout;
     private int proceso;
+    private MenuItem searchItem;
+    private ArrayList<Actividad> actividadesArraylist;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,12 +48,58 @@ public class ActividadesActivity extends AppCompatActivity implements Actividade
         textViewNombreProceso.setText(nombreProceso);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         /*swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 getActividades(proceso);
             }
         });*/
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater menuInflater = getMenuInflater();
+        SearchManager searchManager = (SearchManager) ActividadesActivity.this.getSystemService(Context.SEARCH_SERVICE);
+
+        menuInflater.inflate(R.menu.direcciones, menu);
+        this.searchItem = menu.findItem(R.id.searchViewFind);
+
+        SearchView searchView = null;
+        if (searchItem != null) {
+            searchView = (SearchView) searchItem.getActionView();
+        }
+        if (searchView != null) {
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(ActividadesActivity.this.getComponentName()));
+        }
+
+        searchView.setQueryHint("Buscar Actividad...");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                ArrayList<Actividad> listClone = new ArrayList<Actividad>();
+                if(actividadesArraylist != null || !s.equals("")){
+                    for(Actividad actividad : actividadesArraylist){
+                        if(actividad.getNombre().toUpperCase().contains(s.toUpperCase())){
+                            listClone.add(actividad);
+                        }
+                    }
+                    setViewPager(listClone);
+                }
+                return false;
+            }
+        });
+
+        searchView.setQueryHint("Buscar Actividad...");
+
+
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -69,7 +123,6 @@ public class ActividadesActivity extends AppCompatActivity implements Actividade
         int count = 0;
         AdapterFragmentActividades adapterFragmentActividades;
         adapterFragmentActividades = new AdapterFragmentActividades(getSupportFragmentManager());
-
         for(Actividad actividad: actividadArrayList){
             count += 1;
             ActividadesFragment actividadesFragment = new ActividadesFragment();
@@ -77,8 +130,11 @@ public class ActividadesActivity extends AppCompatActivity implements Actividade
             actividadesFragment.posicion = String.valueOf(count) + '/' + actividadArrayList.size();
 
             adapterFragmentActividades.AddFragment(actividadesFragment, null);
+
         }
+        adapterFragmentActividades.notifyDataSetChanged();
         viewPagerActividades.setAdapter(adapterFragmentActividades);
+
     }
 
     @Override
@@ -87,9 +143,11 @@ public class ActividadesActivity extends AppCompatActivity implements Actividade
         actividadesActivityPresenter.getActividades(proceso);
     }
 
+
     @Override
     public void showActividades(ArrayList<Actividad> actividadArrayList) {
         showSwipeRefreshLayout(false);
+        this.actividadesArraylist = actividadArrayList;
         setViewPager(actividadArrayList);
         textWithoutData.setVisibility(View.GONE);
     }
@@ -104,6 +162,6 @@ public class ActividadesActivity extends AppCompatActivity implements Actividade
     @Override
     public void showSwipeRefreshLayout(boolean bool) {
         viewPagerActividades.setVisibility(bool ? View.GONE :View.VISIBLE);
-        //swipeRefreshLayout.setRefreshing(bool);
+       // swipeRefreshLayout.setRefreshing(bool);
     }
 }
