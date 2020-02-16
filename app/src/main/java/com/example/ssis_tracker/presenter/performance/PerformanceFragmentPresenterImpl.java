@@ -4,7 +4,6 @@ import com.example.ssis_tracker.interactor.performance.PerformanceFragmentIntera
 import com.example.ssis_tracker.interactor.performance.PerformanceFragmentInteractorImpl;
 import com.example.ssis_tracker.model.Performance;
 import com.example.ssis_tracker.view.performance.PerformanceFragmentView;
-
 import java.util.ArrayList;
 
 public class PerformanceFragmentPresenterImpl implements PerformanceFragmentPresenter {

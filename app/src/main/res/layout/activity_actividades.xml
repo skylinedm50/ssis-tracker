@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
         <LinearLayout
@@ -19,18 +18,18 @@
                     android:textAllCaps="true"
                     android:text="TRASLADO DE MOCHILAS A LA SSIS"
                     android:layout_height="wrap_content"/>
-                <!--<android.support.v4.widget.SwipeRefreshLayout
+                <android.support.v4.widget.SwipeRefreshLayout
                     android:id="@+id/swipeRefreshLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">-->
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/viewPagerActividades"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/textViewNombreProceso"
-                    android:isScrollContainer="false"
-                    android:visibility="gone" />
-                <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+                    android:layout_height="match_parent">
+                        <android.support.v4.view.ViewPager
+                            android:layout_below="@+id/textViewNombreProceso"
+                            android:id="@+id/viewPagerActividades"
+                            android:visibility="gone"
+                            android:isScrollContainer="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                </android.support.v4.widget.SwipeRefreshLayout>
         </LinearLayout>
         <TextView
             android:id="@+id/textWithoutData"
@@ -41,5 +40,7 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:gravity="center"/>
-</RelativeLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
 

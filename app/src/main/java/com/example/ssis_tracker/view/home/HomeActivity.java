@@ -1,5 +1,8 @@
 package com.example.ssis_tracker.view.home;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
@@ -14,6 +17,7 @@ import android.view.MenuItem;
 import com.example.ssis_tracker.R;
 import com.example.ssis_tracker.view.agenda.AgendaFragment;
 import com.example.ssis_tracker.view.direcciones.DireccionesFragment;
+import com.example.ssis_tracker.view.login.LoginActivity;
 import com.example.ssis_tracker.view.performance.PerformanceFragment;
 import java.util.List;
 
@@ -23,6 +27,7 @@ public class HomeActivity extends AppCompatActivity
     int itemIdSelect;
     DrawerLayout drawerLayout;
     ConstraintLayout constraintLayout;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,12 @@ public class HomeActivity extends AppCompatActivity
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        sharedPreferences = getApplicationContext().getSharedPreferences("USER", Context.MODE_PRIVATE);
+        if(sharedPreferences.getInt("cod_usuario",0)==0){
+            Intent intent = new Intent(getApplicationContext() , LoginActivity.class );
+            getApplicationContext().startActivity(intent);
+        }
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);

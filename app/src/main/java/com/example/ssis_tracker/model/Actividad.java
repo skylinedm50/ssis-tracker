@@ -2,9 +2,8 @@ package com.example.ssis_tracker.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
-
 public class Actividad {
+
     private int id;
     private String nombre;
     private String descripcion;

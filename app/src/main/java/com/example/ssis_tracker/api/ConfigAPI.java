@@ -7,9 +7,9 @@ public class ConfigAPI {
    private String URL;
 
     public ConfigAPI() {
-        Port = "3005";
-        IPExterna = "190.6.200.98";
-        IPinterna = "192.168.90.23";
+        Port = "";
+        IPExterna = "";
+        IPinterna = "";
     }
 
     public String getPort() {

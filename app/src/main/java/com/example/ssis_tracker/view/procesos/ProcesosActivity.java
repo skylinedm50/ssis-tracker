@@ -64,8 +64,6 @@ public class ProcesosActivity extends AppCompatActivity implements  ProcesosActi
             }
         });
 
-
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -98,7 +96,6 @@ public class ProcesosActivity extends AppCompatActivity implements  ProcesosActi
                     for(Proceso proceso : procesosArrayList){
                         if(proceso.getNombre().toUpperCase().contains(s.toUpperCase())){
                             listClone.add(proceso);
-
                         }
                     }
                     adapterProcesos.adapterDataChange(listClone);

@@ -25,9 +25,7 @@ import com.example.ssis_tracker.api.procesos.ApiServiceProcesos;
 import com.example.ssis_tracker.model.Meta;
 import com.example.ssis_tracker.model.Proceso;
 import com.example.ssis_tracker.view.actividades.ActividadesActivity;
-
 import java.util.ArrayList;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -130,7 +128,6 @@ public class AdapterProcesos extends RecyclerView.Adapter<AdapterProcesos.Holder
     private void showPoppupMetas(int proceso, final View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
         View viewInflate = LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_metas, null);
-
 
         RecyclerView recyclerViewMetas = viewInflate.findViewById(R.id.recyclerViewMetas);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);

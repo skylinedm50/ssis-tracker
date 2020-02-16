@@ -5,6 +5,7 @@ import com.example.ssis_tracker.repository.actividades.ActividadesActivityReposi
 import com.example.ssis_tracker.repository.actividades.ActividadesActivityRepositoryImpl;
 
 public class ActividadesActivityInteractorImpl implements ActividadesActivityInteractor {
+
     private ActividadesActivityRepository actividadesActivityRepository;
 
     public ActividadesActivityInteractorImpl(ActividadesActivityPresenter actividadesActivityPresenter) {
@@ -14,5 +15,15 @@ public class ActividadesActivityInteractorImpl implements ActividadesActivityInt
     @Override
     public void getActividades(int proceso) {
         actividadesActivityRepository.getActividades(proceso);
+    }
+
+    @Override
+    public void getComentarios(int actividad) {
+        actividadesActivityRepository.getComentarios(actividad);
+    }
+
+    @Override
+    public void getImagenes(int actividad) {
+        actividadesActivityRepository.getImagenes(actividad);
     }
 }

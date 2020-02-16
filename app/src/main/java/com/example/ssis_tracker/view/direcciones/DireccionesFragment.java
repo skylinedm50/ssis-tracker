@@ -1,6 +1,5 @@
 package com.example.ssis_tracker.view.direcciones;
 
-
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +27,7 @@ import com.example.ssis_tracker.presenter.direcciones.DireccionesFragmentPresent
 import java.util.ArrayList;
 
 public class DireccionesFragment extends Fragment implements  DireccionesFragmentView{
+
     View view;
     AdapterDirecciones adapterDirecciones;
     DireccionesFragmentPresenter direccionesFragmentPresenter;
@@ -38,6 +38,7 @@ public class DireccionesFragment extends Fragment implements  DireccionesFragmen
     private MenuItem searchItem;
     private ArrayList<Direccion> direccionArrayList;
     public DireccionesFragment(){}
+
 
     @Override
     public void onResume() {
@@ -70,8 +71,6 @@ public class DireccionesFragment extends Fragment implements  DireccionesFragmen
 
         configAppBar(false);
         return view;
-
-
     }
 
     @Override

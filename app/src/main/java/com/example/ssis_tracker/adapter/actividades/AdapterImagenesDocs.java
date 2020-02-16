@@ -20,14 +20,14 @@ public class AdapterImagenesDocs extends RecyclerView.Adapter<AdapterImagenesDoc
 
     public AdapterImagenesDocs(Context cntx){
         this.context = cntx;
-        arrayListImagenes.add("https://source.unsplash.com/user/erondu/1600x900");
+       /* arrayListImagenes.add("https://source.unsplash.com/user/erondu/1600x900");
         arrayListImagenes.add("https://source.unsplash.com/user/erondu/daily");
         arrayListImagenes.add("https://source.unsplash.com/1600x900/?nature,water");
         arrayListImagenes.add("https://source.unsplash.com/WLUHO9A_xik/1600x900");
         arrayListImagenes.add("https://source.unsplash.com/user/erondu/1600x900");
         arrayListImagenes.add("https://source.unsplash.com/user/erondu/daily");
         arrayListImagenes.add("https://source.unsplash.com/1600x900/?nature,water");
-        arrayListImagenes.add("https://source.unsplash.com/WLUHO9A_xik/1600x900");
+        arrayListImagenes.add("https://source.unsplash.com/WLUHO9A_xik/1600x900"); */
     }
 
     @NonNull
@@ -49,6 +49,11 @@ public class AdapterImagenesDocs extends RecyclerView.Adapter<AdapterImagenesDoc
                 v.getContext().startActivity(intent);
             }
         });
+    }
+
+    public void AgregarImagenes(ArrayList<String> imagenes){
+        this.arrayListImagenes = imagenes;
+        notifyDataSetChanged();
     }
 
     @Override

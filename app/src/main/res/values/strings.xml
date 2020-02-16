@@ -25,4 +25,5 @@
     <string name="procesosAtrasado">Procesos atrasados</string>
     <string name="procesosTerminados">Procesos terminados</string>
     <string name="procesosTerminadosATiempo">Procesos terminados a tiempo</string>
+    <string name="actividadesdependientes">ACTIVIDADES DEPENDIENTES</string>
 </resources>

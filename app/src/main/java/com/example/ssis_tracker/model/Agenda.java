@@ -6,9 +6,10 @@ public class Agenda {
     private String Titulo;
     private String FechaAgregada;
 
-    public Agenda(String Titulo, String FechaAgenda){
+    public Agenda(String Titulo, String FechaAgenda , int IdAgenda){
         this.Titulo        = Titulo;
         this.FechaAgregada = FechaAgenda;
+        this.idAgenda      = IdAgenda;
     }
 
     public int getId_agenda() {

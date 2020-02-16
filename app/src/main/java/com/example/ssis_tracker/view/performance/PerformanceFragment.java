@@ -12,7 +12,6 @@ import com.example.ssis_tracker.R;
 import com.example.ssis_tracker.model.Performance;
 import com.example.ssis_tracker.presenter.performance.PerformanceFragmentPresenter;
 import com.example.ssis_tracker.presenter.performance.PerformanceFragmentPresenterImpl;
-
 import java.util.ArrayList;
 
 public class PerformanceFragment extends Fragment implements PerformanceFragmentView {

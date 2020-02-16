@@ -11,7 +11,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.daimajia.swipe.SimpleSwipeListener;
@@ -20,7 +19,7 @@ import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
 import com.daimajia.swipe.implments.SwipeItemRecyclerMangerImpl;
 import com.example.ssis_tracker.R;
 import com.example.ssis_tracker.model.Agenda;
-
+import com.example.ssis_tracker.view.agenda.AgendaFragment;
 import java.util.ArrayList;
 
 
@@ -30,13 +29,13 @@ public class AdapterAgenda extends RecyclerSwipeAdapter<AdapterAgenda.HolderAgen
     private AdapterAgenda.OnItemClickListener onClickListener;
     private Context context;
     protected SwipeItemRecyclerMangerImpl mItemManger = new SwipeItemRecyclerMangerImpl(this);
-
     private int lastPosition = -1;
 
     @Override
     public int getSwipeLayoutResourceId(int position) {
         return R.id.swipeLayout;
     }
+
 
     public class HolderAgenda extends RecyclerView.ViewHolder{
         private TextView textViewTituloAgenda;
@@ -49,6 +48,7 @@ public class AdapterAgenda extends RecyclerSwipeAdapter<AdapterAgenda.HolderAgen
 
             this.textViewTituloAgenda   = itemView.findViewById(R.id.textViewTituloAgenda);
             this.textViewFechaAgenda    = itemView.findViewById(R.id.textViewFechaAgenda);
+
             this.swipeLayout            = itemView.findViewById(R.id.swipeLayout);
             this.lytDelete              = itemView.findViewById(R.id.lytdelete);
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -64,8 +64,8 @@ public class AdapterAgenda extends RecyclerSwipeAdapter<AdapterAgenda.HolderAgen
         }
     }
 
-    public AdapterAgenda(Context context, ArrayList<Agenda> arrayListAgenda){
-        this.arrayListAgenda=arrayListAgenda;
+    public AdapterAgenda(Context context){
+        this.arrayListAgenda = new ArrayList<>();
         this.context= context;
     }
 
@@ -84,6 +84,11 @@ public class AdapterAgenda extends RecyclerSwipeAdapter<AdapterAgenda.HolderAgen
     }
 
 
+    public void AgregarTemasAgendados(ArrayList<Agenda> arrayListAgenda){
+        this.arrayListAgenda=arrayListAgenda;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public AdapterAgenda.HolderAgenda onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -93,11 +98,9 @@ public class AdapterAgenda extends RecyclerSwipeAdapter<AdapterAgenda.HolderAgen
 
     @Override
     public void onBindViewHolder(@NonNull final AdapterAgenda.HolderAgenda viewHolder, final int i) {
-        Agenda agenda = arrayListAgenda.get(i);
+        final Agenda agenda = arrayListAgenda.get(i);
         viewHolder.textViewTituloAgenda.setText(agenda.getTitulo());
         viewHolder.textViewFechaAgenda.setText(agenda.getFecha_Agregada());
-
-
         viewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
 
         viewHolder.swipeLayout.addSwipeListener(new SimpleSwipeListener() {
@@ -115,7 +118,9 @@ public class AdapterAgenda extends RecyclerSwipeAdapter<AdapterAgenda.HolderAgen
                 notifyItemRemoved(i);
                 notifyItemRangeChanged(i, arrayListAgenda.size());
                 mItemManger.closeAllItems();
-                Toast.makeText(v.getContext(),   viewHolder.textViewTituloAgenda.getText().toString() + " ELIMINADO!", Toast.LENGTH_LONG).show();
+                AgendaFragment agendaFragment = new AgendaFragment();
+                agendaFragment.EliminarTemasAgendados(agenda.getId_agenda());
+                Toast.makeText(v.getContext(),   viewHolder.textViewTituloAgenda.getText().toString() + " ELIMINADO! "+String.valueOf(agenda.getId_agenda()), Toast.LENGTH_LONG).show();
             }
         });
 
